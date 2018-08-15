@@ -1,2 +1,2 @@
 # Group-Project-1
-Boot Camp first group project
+Hey guys, here's where I'll keep notes on project requirements and stuff.
