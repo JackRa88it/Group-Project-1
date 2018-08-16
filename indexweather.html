@@ -1,0 +1,42 @@
+<html>
+     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title> Weather </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+     </head>
+
+     <body>
+
+                <div class="card" style="width: 18rem;">
+                                
+                                <div class="card-body" id="weather-card-small" style="visibility: visible">
+                                         <h1><div id="temp"></div><div id="minutely"></div></h1>
+                                        <h2><div id="location"></div></h2>
+                                        <div id="icon"></div>
+                                  <a href="#" class="btn btn-primary" id="weather-btn-sm">Go somewhere</a>
+                                </div>
+                              </div>
+
+     </body>
+
+     <div class="card" style="width: 18rem;">
+                                
+                <div class="card-body" id="weather-card-big" style="visibility: hidden">
+                         <h1><div id="temp"></div><div id="minutely"></div></h1>
+                        <h2><div id="location"></div></h2>
+                        <div id="icon"></div>
+                        <div id=moon></div>
+                        <img src="https://media1.tenor.com/images/49ef6e4f254e4fe97804ab5ecf5faa27/tenor.gif?itemid=7528652" alt="">
+                  <a class="btn btn-primary" id="weather-btn-big">Go somewhere</a>
+                </div>
+              </div>
+
+
+</body>
+     <script src="weather.js"></script>
+  </html>
