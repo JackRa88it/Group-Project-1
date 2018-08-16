@@ -1,7 +1,7 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
   console.log( "ready!" );
-});
+
 
 weathersm = document.getElementById("weather-btn-sm")
 weatherbig = document.getElementById("weather-btn-big")
@@ -48,7 +48,7 @@ $(weathersm).on('click', function(){
 
 
      $("#weather-card-small").css('visibility', 'hidden');
-
+      
   
 
 });
@@ -67,3 +67,4 @@ $(weatherbig).on('click', function(){
 
 });
 
+});
