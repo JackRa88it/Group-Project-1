@@ -8,7 +8,46 @@
     padding-top: 54px;
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
+  .backgroundImage {
+    background-image: url("../images/images.jpg");
+    opacity: 0.5;
+    position: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    width: 100%;
+    height: 900px;
+    z-index: -1;
+    top: 0;
+}
+
+.card {
+  height: 300px;
+}
+
+.blue {
+  background-color: rgb(141, 80, 6);
+  margin-bottom: 25px;
+  margin-top: -25px;
+}
+
+.green {
+  background-color: rgb(145, 214, 42) !important;
+}
+
+.orange {
+  background-color: rgb(255, 208, 0) !important;
+}
+
+.red {
+  background-color: orange !important;
+}
+
+.lettuce {
+  background-color: rgb(193, 223, 26) !important;
+}
+
   @media (min-width: 992px) {
     body {
       padding-top: 56px;
