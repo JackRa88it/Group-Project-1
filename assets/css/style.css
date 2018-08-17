@@ -5,7 +5,6 @@
  */
 
  body {
-    padding-top: 54px;
     font-family: Arial, Helvetica, sans-serif;
   }
 
@@ -26,27 +25,39 @@
   height: 300px;
 }
 
-.blue {
-  background-color: rgb(141, 80, 6);
+.hat {
+  background-color: rgb(228, 113, 47);
   margin-bottom: 25px;
   margin-top: -25px;
 }
 
-.green {
+.hat-nav {
+  margin:0 -15px;
+}
+
+.weather {
   background-color: rgb(145, 214, 42) !important;
 }
 
-.orange {
+.news {
   background-color: rgb(255, 208, 0) !important;
 }
 
-.red {
+.traffic {
   background-color: orange !important;
 }
 
-.lettuce {
+.notes {
   background-color: rgb(193, 223, 26) !important;
 }
+
+.card-news {
+  z-index: 10;
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.btn 
 
   @media (min-width: 992px) {
     body {
@@ -69,4 +80,29 @@
 
   .card-body {
       opacity: .80;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color:white;
+  }
+
+  .menu-tile {
+    padding:30px;
+  }
+
+  .detail-screen {
+    min-height: 1000px;
+    padding:40px;
+  }
+
+  .container-fluid {
+    display: none;
+  }
+
+  #navPanels {
+    cursor: pointer;
+  }
+
+  .container .weather, .container .news, .container .notes, .container .traffic {
+    cursor: pointer;
   }

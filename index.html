@@ -7,29 +7,34 @@
   <title>Daily Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 </head>
 
 <body>
   <div class="backgroundImage"></div>
   <!-- Page Content -->
+  <!-- Page Heading -->
   <div class="container">
 
-    <!-- Page Heading -->
-    <div class="card-header text-white blue">
+
+    <div class="card-header text-white hat">
       <div class="card-body">
         Today is Thursday, August 16th 2018.
         <!-- moment().format('LLLL'); -->
       </div>
     </div>
 
+    <!-- Home page cards -->
     <div class="row">
       <div class="col-lg-6 portfolio-item">
-        <div class="card text-white bg-primary mb-2 green">
+        <div class="card text-white bg-primary mb-2 weather">
           <div class="card-header">Weather</div>
           <div class="card-body" id="weather">
             <h5 class="card-title">Primary card title</h5>
@@ -39,7 +44,7 @@
       </div>
 
       <div class="col-lg-6 portfolio-item">
-        <div class="card text-white bg-primary mb-2 orange">
+        <div class="card text-white bg-primary mb-2 news">
           <div class="card-header">News</div>
           <div class="card-body" id="news">
             <h5 class="card-title">Primary card title</h5>
@@ -51,7 +56,7 @@
 
     <div class="row">
       <div class="col-lg-6 portfolio-item">
-        <div class="card text-white bg-primary mb-2 red">
+        <div class="card text-white bg-primary mb-2 traffic">
           <div class="card-header">Traffic</div>
           <div class="card-body" id="traffic">
             <h5 class="card-title">Primary card title</h5>
@@ -61,7 +66,7 @@
       </div>
 
       <div class="col-lg-6 portfolio-item">
-        <div class="card text-white bg-primary mb-2 lettuce">
+        <div class="card text-white bg-primary mb-2 notes">
           <div class="card-header">Notes</div>
           <div class="card-body" id="notes">
             <h5 class="card-title">Primary card title</h5>
@@ -70,19 +75,134 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 
+  <!-- Detail area (2nd screen) -->
+  <div class="container-fluid">
 
+    <!-- Large screen menu -->
+    <div class="d-none d-lg-block" id="navPanels">
+      <div class="row">
+        <div class="col-sm-4 weather text-center menu-tile">
+          <h3>Weather</h3>
+        </div>
+        <div class="col-sm-4 news text-center menu-tile">
+          <h3>News</h3>
+        </div>
+        <div class="col-sm-4 traffic text-center menu-tile">
+          <h3>Traffic</h3>
+        </div>
+        <div class="col-sm-4 notes text-center menu-tile">
+          <h3>Notes</h3>
+        </div>
+      </div>
+    </div>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Small screen menu -->
+    <div class="d-none d-sm-block d-lg-none">
+      <nav class="navbar navbar-expand-lg navbar-light hat hat-nav">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('weather')">Weather</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('news')">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('traffic')">Traffic</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('notes')">Notes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
+    <!-- Content panels -->
+    <div class="row" id="detailPanels">
+      <div class="col-xl-12 weather detail-screen">
+        <h1>Weather</h1>
+        <hr>
+      </div>
+      <div class="col-xl-12 news detail-screen">
+        <h1>News</h1>
+        <hr>
+      </div>
+      <div class="col-xl-12 traffic detail-screen">
+        <h1>Traffic</h1>
+        <hr>
+      </div>
+      <div class="col-xl-12 notes  detail-screen">
+        <h1>Notes</h1>
+        <hr>
+      </div>
+    </div>
+  </div>
 
   <script src="./assets/javascript/main.js"></script>
+
+  <!-- Javascript -->
+  <script>
+
+// Select
+    let selectPanel = function (menuItem) {
+      $("#navPanels div").show();
+      $("#navPanels div." + menuItem).hide();
+      $("#detailPanels div").hide();
+      $("#detailPanels div." + menuItem).show();
+    }
+
+    let activateDetailView = function (menuItem) {
+      $(".container").hide();
+      $(".container-fluid").show();
+      selectPanel(menuItem);
+    }
+
+    let activateHomePage = function () {
+      $(".container").show();
+      $(".container-fluid").hide();
+    }
+
+    $("#navPanels .weather").on("click", function () {
+      selectPanel("weather")
+    });
+
+    $(".container .weather").on("click", function () {
+      activateDetailView("weather")
+    });
+
+    $("#navPanels .news").on("click", function () {
+      selectPanel("news")
+    });
+
+    $(".container .news").on("click", function () {
+      activateDetailView("news")
+    });
+
+    $("#navPanels .traffic").on("click", function () {
+      selectPanel("traffic")
+    });
+
+    $(".container .traffic").on("click", function () {
+      activateDetailView("traffic")
+    });
+
+    $("#navPanels .notes").on("click", function () {
+      selectPanel("notes")
+    });
+
+    $(".container .notes").on("click", function () {
+      activateDetailView("notes")
+    });
+
+  </script>
 
 </body>
 
