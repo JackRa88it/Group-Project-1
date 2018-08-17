@@ -1,9 +1,9 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
-  console.log( "ready!" );
 
 var latitude;
 var longitude;
+
 
 weathersm = document.getElementById("weather-btn-small-card")
 weatherbig = document.getElementById("weather-btn-big-card")
@@ -11,18 +11,19 @@ function weather() {
     var location = document.getElementById("location");
     var apiKey = "c8b3f483facbe7b28175e6aaa724b450";
     var url = "https://api.forecast.io/forecast/";
-  
+    
     navigator.geolocation.getCurrentPosition(success, error);
   
     function success(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 
-      console.log(typeof latitude);
-      console.log(typeof longitude);
+      console.log( latitude);
+      console.log( longitude);
 
-      location.innerHTML =
-        "Latitude is " + latitude + "° Longitude is " + longitude + "°";
+      
+      // location.innerHTML =
+      //   "Latitude is " + latitude + "° Longitude is " + longitude + "°";
   
       $.getJSON(
         url + apiKey + "/" + latitude + "," + longitude + "?callback=?",
@@ -44,6 +45,8 @@ function weather() {
           
           console.log(dayD.format('dddd MMMM Do YYYY, h:mm:ss a'));
           
+
+
 
 
           console.log(data.currently.humidity)
@@ -117,29 +120,15 @@ function weather() {
 
 $(weathersm).on('click', function(){
   console.log("small clicked!");
-
      $("#weather-card-big").css('visibility', 'visible');
-
-
-
      $("#weather-card-small").css('visibility', 'hidden');
-    
-  
-
 });
 
 
 $(weatherbig).on('click', function(){
   console.log("big clicked!");
-
-     $("#weather-card-big").css('visibility', 'hidden');
-
-
-
-     $("#weather-card-small").css('visibility', 'visible');
-
-  
-
+    $("#weather-card-big").css('visibility', 'hidden');
+    $("#weather-card-small").css('visibility', 'visible');
 });
 
 
@@ -157,29 +146,39 @@ var infowindow = new google.maps.InfoWindow;
 document.getElementById('weather-btn-big-card').addEventListener('click', function() {
   geocodeLatLng(geocoder, map, infowindow);
 });
-},
 
 function geocodeLatLng(geocoder, map, infowindow) {
-var input = latitude + "," + longitude;
-var latlngStr = input.split(',', 2);
-console.log(typeof latlngStr);
+    var input = latitude + "," + longitude;
+    var latlngStr = input.split(',', 2);
+    console.log(typeof latlngStr);
 
-var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-geocoder.geocode({'location': latlng}, function(results, status) {
-  if (status === 'OK') {
-    if (results[0]) {
-      map.setZoom(11);
-      var marker = new google.maps.Marker({
-        position: latlng,
-        map: map
-      });
-      infowindow.setContent(results[0].formatted_address);
-      infowindow.open(map, marker);
-    } else {
-      window.alert('No results found');
-    }
-  } else {
-    window.alert('Geocoder failed due to: ' + status);
-  }
-});
+    var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+    geocoder.geocode({'location': latlng}, function(results, status) {
+      if (status === 'OK') {
+        if (results[0]) {
+          map.setZoom(11);
+          var marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+          });
+          infowindow.setContent(results[0].formatted_address);
+          infowindow.open(map, marker);
+        } else {
+          window.alert('No results found');
+        }
+      } else {
+        window.alert('Geocoder failed due to: ' + status);
+      }
+    });
+};
+    console.log("this is the hgin" + latitude)
+    var queryURL="http://api.geonames.org/findNearestAddressJSON?lat="+latitude+"&lng="+longitude+"&username=demo "
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(Adress) {
+
+    console.log(Adress)
+    })
+
 });
