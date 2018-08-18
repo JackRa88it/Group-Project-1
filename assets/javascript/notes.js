@@ -16,13 +16,15 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-
+// var currentUser;
 
 // FUNCTIONS
 // ----------------------
 
 
-
+// function assignUser(uid){
+//   currentUser = uid;
+// };
 
 
 // EVENT HANDLERS/CALLS
@@ -32,8 +34,6 @@ var database = firebase.database();
 $('#SignUpButton').on('click', function(event) {
 
   event.preventDefault();
-
-  console.log('sign up clicked');
 
   var email = $('#InputEmail').val().trim();
   var password = $('#InputPassword').val().trim();
@@ -51,7 +51,7 @@ $('#SignUpButton').on('click', function(event) {
 });
 
 // sign in existing users
-$('#SignUpButton').on('click', function(event) {
+$('#SignInButton').on('click', function(event) {
 
   event.preventDefault();
 
@@ -63,6 +63,19 @@ $('#SignUpButton').on('click', function(event) {
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
+  });
+
+});
+
+// sign out user
+$('#SignOutButton').on('click', function(event) {
+
+  event.preventDefault();
+
+  firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
   });
 
 });
@@ -86,9 +99,83 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(isAnonymous);
     console.log(uid);
     console.log(providerData);
+
+    // assignUser(uid);
     // ...
   } else {
     // User is signed out.
     // ...
   }
 });
+
+// refresh notes list on child added
+database.ref().on('child_added', function(snapshot) {
+
+  if (snapshot.val().userID == firebase.auth().currentUser.uid) {
+    var card = $('<div>');
+    card.attr({'class':'card', 'id':'note' + snapshot.key});
+    var cardBody = $('<div>');
+    cardBody.attr('class', 'card-body');
+    var row = $('<div>');
+    row.attr('class', 'row');
+    var textCol = $('<div>');
+    textCol.attr('class', 'col-10 my-auto');
+    textCol.text(snapshot.val().noteText);
+    var buttonCol = $('<div>');
+    buttonCol.attr('class', 'col-2');
+    var button = $('<button>');
+    button.attr({'type':'button', 'class':'btn btn-light', 'id':'delButton', 'value':snapshot.key, 'style':'float:right; height:38px'});
+    button.text('X');
+
+    card.append(cardBody);
+    cardBody.append(row);
+    row.append(textCol, buttonCol);
+    buttonCol.append(button);
+    $('#notesList').append(card);
+  }
+  else {};
+
+});
+
+// add note button
+$('#AddNoteButton').on('click', function(event) {
+
+  event.preventDefault();
+
+  var userID = firebase.auth().currentUser.uid;
+  var noteText = $('#InputNote').val().trim();
+
+  // console.log(userID);
+  // console.log(noteText);
+
+  database.ref().push({
+    userID: userID,
+    noteText: noteText
+  });
+
+  $('#InputNote').val('');
+  
+});
+
+// delete note button
+$('#notesList').on('click', '#delButton', function(event) {
+
+  event.preventDefault();
+
+
+  database.ref().child(this.value).remove().then(function(){
+    console.log('removed');
+  });
+
+  $('#note' + this.value).remove();
+  $('#InputNote').val('');
+
+});
+
+
+// small card size = 500x250
+
+// TO DO
+// delete button
+// checkboxes
+// get sign-in/out/refresh list working

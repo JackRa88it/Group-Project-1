@@ -1,0 +1,12 @@
+.card {
+  margin: 5px auto;
+}
+
+#notesList {
+  padding:10px;
+}
+
+#SignOutButton {
+  display: block;
+  margin: 10px auto;
+}
