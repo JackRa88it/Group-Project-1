@@ -75,9 +75,9 @@ for (var i = 0; i < numTopArticles + 1; i++) {
   // If the article has a byline, log and append to $articleList
   var byline = results[i].byline;
 
-  if (byline && byline.original) {
-    console.log(byline.original);
-    $topArticleListItem.append("<h5>" + byline.original + "</h5>");
+  if (byline) {
+    console.log();
+    $topArticleListItem.append("<h5>" + byline + "</h5>");
   }
 
   // Log section, and append to document if exists
