@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
     crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -25,11 +26,9 @@
   <div class="container">
     <div class="card-header text-white hat">
       <div id="header" class="card-body">
-        <span id="phrase">Good Morning Sunshine!</span> <br>
-        Today is
-        <script>
-          document.write(moment().format('LLLL'))
-        </script>
+        <span id="phrase">Good Morning Sunshine!</span>
+        <br>
+        <span id="dateTime"></span>
       </div>
     </div>
 
@@ -49,7 +48,7 @@
         <div class="card text-white bg-primary news">
           <div class="card-header">News</div>
           <div class="card-body" id="news">
-              <h5 class="card-title">Primary card title</h5>
+            <h5 class="card-title">Primary card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           </div>
         </div>
