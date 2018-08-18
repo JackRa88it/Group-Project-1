@@ -1,38 +1,42 @@
-/*!
- * Start Bootstrap - 2 Col Portfolio (https://startbootstrap.com/template-overviews/2-col-portfolio)
- * Copyright 2013-2018 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-2-col-portfolio/blob/master/LICENSE)
- */
-
- body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  .backgroundImage {
-    background-image: url("../images/images.jpg");
-    opacity: 0.5;
-    position: fixed;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position-y: 100%;
-    width: 100%;
-    height: 900px;
-    z-index: -1;
-    top: 0;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../images/images.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .card {
   height: 300px;
 }
 
+.card-header {
+  font-size: 22px;
+}
+
+#header {
+  padding: 0px;
+}
+
+.hat #header {
+  font-weight: 100;
+  font-size: 18px;
+}
+
+#phrase {
+  font-family: 'Freckle Face', cursive;
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+
 .hat {
   background-color: rgb(228, 113, 47);
   margin-bottom: 25px;
-  margin-top: -25px;
+  margin-top: 25px;
 }
 
 .hat-nav {
-  margin:0 -15px;
+  margin: 0 -15px;
 }
 
 .weather {
@@ -51,58 +55,85 @@
   background-color: rgb(193, 223, 26) !important;
 }
 
-.card-news {
-  z-index: 10;
-  opacity: 0.4;
-  z-index: 0;
+#backBtn {
+  background-color: rgb(228, 113, 47);
 }
 
-.btn 
+.portfolio-item {
+  margin-bottom: 25px;
+}
 
-  @media (min-width: 992px) {
-    body {
-      padding-top: 56px;
-    }
-  }
-  
-  .portfolio-item {
-    margin-bottom: 30px;
-  }
-  
-  .pagination {
-    margin-bottom: 30px;
-  }
-  
-  .card-header {
-      text-align: center;
-      font-weight: bold
-  }
+.pagination {
+  margin-bottom: 25px;
+}
 
-  .card-body {
-      opacity: .80;
-  }
+.card-header {
+  text-align: center;
+  font-weight: bold;
+}
 
-  h1, h2, h3, h4, h5 {
-    color:white;
-  }
+h1, h2, h3, h4, h5 {
+  color: white;
+}
 
-  .menu-tile {
-    padding:30px;
-  }
+.menu-tile {
+  padding: 25px;
+}
 
-  .detail-screen {
-    min-height: 1000px;
-    padding:40px;
-  }
+.detail-screen {
+  min-height: 710px;
+  padding: 25px;
+}
 
-  .container-fluid {
-    display: none;
-  }
+.container-fluid {
+  display: none;
+}
 
-  #navPanels {
-    cursor: pointer;
-  }
+.container .weather, .container .news, .container .notes, .container .traffic, #backBtn, #navPanels {
+  cursor: pointer;
+}
 
-  .container .weather, .container .news, .container .notes, .container .traffic {
-    cursor: pointer;
-  }
+.weather.grad {
+  background: rgba(145, 214, 42, 1);
+  background: -moz-linear-gradient(top, rgba(145, 214, 42, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(145, 214, 42, 1)), color-stop(19%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+  background: -webkit-linear-gradient(top, rgba(145, 214, 42, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -o-linear-gradient(top, rgba(145, 214, 42, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(145, 214, 42, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to bottom, rgba(145, 214, 42, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#91d62a', endColorstr='#ffffff', GradientType=0);
+}
+
+.news.grad {
+  background: rgba(255, 208, 0, 1);
+  background: -moz-linear-gradient(top, rgba(255, 208, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 208, 0, 1)), color-stop(19%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+  background: -webkit-linear-gradient(top, rgba(255, 208, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -o-linear-gradient(top, rgba(255, 208, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(255, 208, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 208, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd000', endColorstr='#ffffff', GradientType=0);
+}
+
+.traffic.grad {
+  background: rgba(255, 166, 0, 1);
+  background: -moz-linear-gradient(top, rgba(255, 166, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 166, 0, 1)), color-stop(19%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+  background: -webkit-linear-gradient(top, rgba(255, 166, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -o-linear-gradient(top, rgba(255, 166, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(255, 166, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 166, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa600', endColorstr='#ffffff', GradientType=0);
+}
+
+.notes.grad {
+  color: rgb(40, 48, 1);
+  background: rgba(193, 223, 26, 1);
+  background: -moz-linear-gradient(top, rgba(193, 223, 26, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(193, 223, 26, 1)), color-stop(19%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+  background: -webkit-linear-gradient(top, rgba(193, 223, 26, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -o-linear-gradient(top, rgba(193, 223, 26, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(193, 223, 26, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to bottom, rgba(193, 223, 26, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1df1a', endColorstr='#ffffff', GradientType=0);
+}
