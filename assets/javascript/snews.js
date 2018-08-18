@@ -94,7 +94,7 @@ var aTag = document.createElement('a');
 aTag.setAttribute('href', topArticle.url);
 aTag.setAttribute('target', "_blank");
 aTag.innerHTML = "READ MORE";
-// readMore.attr('class', 'readmo')
+readMore.attr('class', 'readmore')
 readMore.append(aTag);
 $topArticleListItem.append(readMore);
 

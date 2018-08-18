@@ -16,5 +16,12 @@
     position: relative;
     float: right;
     right: 0;
+    margin: auto 0;
 }
 
+.readmore {
+    position: relative;
+    
+    left: 0;
+    bottom: 0%;
+}
