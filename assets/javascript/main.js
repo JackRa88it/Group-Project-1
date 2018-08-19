@@ -99,11 +99,11 @@ $(function () {
 
 /* functions that need to be implemented by ajax for all topics */
 let populateWeatherCard = function () {
-    $("#weather").text("45F - card")
+   
 }
 
 let populateWeatherDetail = function () {
-    $("#detailPanels .weather").text("45F - detail")
+
 }
 
 let populateNewsCard = function () {
