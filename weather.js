@@ -3,8 +3,8 @@ $( document ).ready(function() {
 
   var latitude;
   var longitude;
-  var weathersm = document.getElementById("weather-btn-small-card")
-  var weatherbig = document.getElementById("weather-btn-big-card")
+  // var weathersm = document.getElementById("weather-btn-small-card")
+  // var weatherbig = document.getElementById("weather-btn-big-card")
 
   function weather() {
     var location= $(".location");
@@ -32,161 +32,161 @@ $( document ).ready(function() {
           $('.uv').html("The UV Level" + data.currently.uvIndex)
           console.log(data)
 
-          var dayU = moment.unix(data.daily.data[0].sunriseTime); //seconds
-          var dayD = moment.unix(data.daily.data[0].sunsetTime); //seconds
+            var dayU = moment.unix(data.daily.data[0].sunriseTime); //seconds
+            var dayD = moment.unix(data.daily.data[0].sunsetTime); //seconds
 
-          $(".sunUp").html( "Sunrise Time: " + dayU.format('h:mm:ss a'))
-          $(".sunDwn").html( "Sunset Time: " + dayD.format('h:mm:ss a'))
-
-
-            
-            // and then:
-            
-            console.log(dayD.format('dddd MMMM Do YYYY, h:mm:ss a'));
-            
+            $(".sunUp").html( "Sunrise Time: " + dayU.format('h:mm:ss a'))
+            $(".sunDwn").html( "Sunset Time: " + dayD.format('h:mm:ss a'))
 
 
-
-
-            console.log(data.currently.humidity)
-            if (data.minutely.icon==="clear-day"){
-              $(".icon").html("<img src='assets/weather-icons/clear-day.png' >")
-            
-            }
-            
-            else if (data.minutely.icon==="clear-night"){
-              $(".icon").html("<img src='assets/weather-icons/clear-night.png' >")
               
-              }
-            
+              // and then:
               
-            else if (data.minutely.icon==="cloudy"){
-              $(".icon").html("<img src='assets/weather-icons/cloudy.png' >")
+              console.log(dayD.format('dddd MMMM Do YYYY, h:mm:ss a'));
               
-              }
-            
-              
-            else if (data.minutely.icon==="fog"){
-              $(".icon").html('<img src="assets/weather-icons/fog.png" >')
-              
-              }
-            
-              
-            else if (data.minutely.icon=="partly-cloudy-day"){
-              $(".icon").html('<img src="./assets/weather-icons/partly-cloudy-day.png" >')
+
+
+
+
+              console.log(data.currently.humidity)
+              if (data.minutely.icon==="clear-day"){
+                $(".icon").html("<img src='assets/weather-icons/clear-day.png' >")
               
               }
               
-            else if (data.minutely.icon==="partly-cloudy-night"){
-              $(".icon").html('<img src="assets/weather-icons/partly-cloudy-night.png" >')
-              
-              }
-            
-              else if (data.minutely.icon==="rain"){
-              $(".icon").html('<img src="assets/weather-icons/rain.png" >')
-              
-              }
-              else if (data.minutely.icon==="sleet"){
-              $(".icon").html('<img src="assets/weather-icons/sleet.png" >')
-              
-              }
-            
-              else if (data.minutely.icon==="snow"){
-              $(".icon").html('<img src="assets/weather-icons/snow.png" >')
-              
-              }
-            
-              else {
-              $(".icon").html('<img src="assets/weather-icons/wind.png" >')
-              
-              };
-            
-                            initMap(latitude, longitude);
-
-                          
-                        }
-                      );
-                    }
-                  
-                    function error() {
-                      location.innerHTML = "Unable to retrieve your location";
-                    }
-                  
-                    location.innerHTML = "Locating...";
-                  };
-                  
-                  weather();
-
-                $(weathersm).on('click', function(){
-                  console.log("small clicked!");
-                    $("#weather-card-big").css('visibility', 'visible');
-                    $("#weather-card-small").css('visibility', 'hidden');
-                });
-
-
-                $(weatherbig).on('click', function(){
-                  console.log("big clicked!");
-                    $("#weather-card-big").css('visibility', 'hidden');
-                    $("#weather-card-small").css('visibility', 'visible');
-                });
-
-
-                function initMap(latitude, longitude) {
-                  console.log(typeof latitude, typeof longitude);
-                  map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat:latitude, lng: longitude},
-                    zoom: 20
-                  });
+              else if (data.minutely.icon==="clear-night"){
+                $(".icon").html("<img src='assets/weather-icons/clear-night.png' >")
+                
                 }
-
-                var geocoder = new google.maps.Geocoder;
-                var infowindow = new google.maps.InfoWindow;
-
-                document.getElementById('weather-btn-big-card').addEventListener('click', function() {
-                  geocodeLatLng(geocoder, map, infowindow);
-                });
-
-                function geocodeLatLng(geocoder, map, infowindow) {
-                    var input = latitude + "," + longitude;
-                    var latlngStr = input.split(',', 2);
-                    console.log(typeof latlngStr);
-
-                    var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-                    geocoder.geocode({'location': latlng}, function(results, status) {
-                      if (status === 'OK') {
-                        if (results[0]) {
-                          map.setZoom(8);
-                          var marker = new google.maps.Marker({
-                            position: latlng,
-                            map: map
-                          });
-                          infowindow.setContent(results[0].formatted_address);
-                          infowindow.open(map, marker);
-                        } else {
-                          window.alert('No results found');
-                        }
-                      } else {
-                        window.alert('Geocoder failed due to: ' + status);
-                      }
-                    });
+              
+                
+              else if (data.minutely.icon==="cloudy"){
+                $(".icon").html("<img src='assets/weather-icons/cloudy.png' >")
+                
+                }
+              
+                
+              else if (data.minutely.icon==="fog"){
+                $(".icon").html('<img src="assets/weather-icons/fog.png" >')
+                
+                }
+              
+                
+              else if (data.minutely.icon=="partly-cloudy-day"){
+                $(".icon").html('<img src="./assets/weather-icons/partly-cloudy-day.png" >')
+                
+                }
+                
+              else if (data.minutely.icon==="partly-cloudy-night"){
+                $(".icon").html('<img src="assets/weather-icons/partly-cloudy-night.png" >')
+                
+                }
+              
+                else if (data.minutely.icon==="rain"){
+                $(".icon").html('<img src="assets/weather-icons/rain.png" >')
+                
+                }
+                else if (data.minutely.icon==="sleet"){
+                $(".icon").html('<img src="assets/weather-icons/sleet.png" >')
+                
+                }
+              
+                else if (data.minutely.icon==="snow"){
+                $(".icon").html('<img src="assets/weather-icons/snow.png" >')
+                
+                }
+              
+                else {
+                $(".icon").html('<img src="assets/weather-icons/wind.png" >')
+                
                 };
+              
+                              initMap(latitude, longitude);
 
-                    console.log("this is the hgin" + latitude);
+                            
+                          }
+                        );
+                      }
+                    
+                      function error() {
+                        location.innerHTML = "Unable to retrieve your location";
+                      }
+                    
+                      location.innerHTML = "Locating...";
+                    };
+                    
+                    weather();
 
-                  function town(){
-                var Lon =parseInt(longitude)
-                var Lat =parseInt(latitude)
-                    var queryURL="http://api.geonames.org/findNearestAddressJSON?lat="+Lat+"&lng="+Lon+"&username=cmeeder1207 "
-                   
-                    $.ajax({
-                      url: queryURL,
-                      method: "GET"
-                    }).then(function(Adress) {
-                      console.log(Adress);
-                     
-                    }) 
-                  
+                  // $(weathersm).on('click', function(){
+                  //   console.log("small clicked!");
+                  //     $("#weather-card-big").css('visibility', 'visible');
+                  //     $("#weather-card-small").css('visibility', 'hidden');
+                  // });
+
+
+                  // $(weatherbig).on('click', function(){
+                  //   console.log("big clicked!");
+                  //     $("#weather-card-big").css('visibility', 'hidden');
+                  //     $("#weather-card-small").css('visibility', 'visible');
+                  // });
+
+
+                  function initMap(latitude, longitude) {
+                    console.log(typeof latitude, typeof longitude);
+                    map = new google.maps.Map(document.getElementById('map'), {
+                      center: {lat:latitude, lng: longitude},
+                      zoom: 20
+                    });
                   }
-            town()
 
-});
+                  var geocoder = new google.maps.Geocoder;
+                  var infowindow = new google.maps.InfoWindow;
+
+                  document.addEventListener('click', function() {
+                    geocodeLatLng(geocoder, map, infowindow);
+                  });
+
+                  function geocodeLatLng(geocoder, map, infowindow) {
+                      var input = latitude + "," + longitude;
+                      var latlngStr = input.split(',', 2);
+                      console.log(typeof latlngStr);
+
+                      var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+                      geocoder.geocode({'location': latlng}, function(results, status) {
+                        if (status === 'OK') {
+                          if (results[0]) {
+                            map.setZoom(8);
+                            var marker = new google.maps.Marker({
+                              position: latlng,
+                              map: map
+                            });
+                            infowindow.setContent(results[0].formatted_address);
+                            infowindow.open(map, marker);
+                          } else {
+                            window.alert('No results found');
+                          }
+                        } else {
+                          window.alert('Geocoder failed due to: ' + status);
+                        }
+                      });
+                  };
+
+                      console.log("this is the hgin" + latitude);
+
+                    function town(){
+                  var Lon =parseInt(longitude)
+                  var Lat =parseInt(latitude)
+                      var queryURL="http://api.geonames.org/findNearestAddressJSON?lat="+Lat+"&lng="+Lon+"&username=cmeeder1207 "
+                    
+                      $.ajax({
+                        url: queryURL,
+                        method: "GET"
+                      }).then(function(Adress) {
+                        console.log(Adress);
+                      
+                      }) 
+                    
+                    }
+              town()
+
+  });

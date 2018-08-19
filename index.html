@@ -2,15 +2,207 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Title here</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="utf-8">
+
+  <title>Daily Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Freckle+Face" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script src="weather.js"></script>
 </head>
 
 <body>
+  <div class="container">
+    <div class="card-header text-white hat">
+      <div id="header" class="card-body">
+        <span id="phrase">Good Morning Sunshine!</span>
+        <br> Today is
+        <span id="dateTime"></span>
+        <script>
+          document.write(moment().format('LLLL'))
+        </script>
+      </div>
+    </div>
 
+    <!-- Home page cards -->
+    <div class="row">
+      <div class="col-lg-6 portfolio-item">
+        <div class="card text-white bg-primary weather">
+          <div class="card-header">Weather</div>
+          <div class="card-body" id="weather">
+           
+            <p class="card-text"><h1><div class="temp"></div><div id="minutely"></div></h1>
+              <h2><div class="location"></div></h2>
+              <div class="icon"></div></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 portfolio-item">
+        <div class="card text-white bg-primary news">
+          <div class="card-header">News</div>
+          <div class="card-body" id="news">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 portfolio-item">
+        <div class="card text-white bg-primary traffic">
+          <div class="card-header">Horoscope</div>
+          <div class="card-body" id="traffic">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 portfolio-item">
+        <div class="card text-white bg-primary notes">
+          <div class="card-header">Notes</div>
+          <div class="card-body" id="notes">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail area (2nd screen) -->
+  <div class="container-fluid">
+
+    <!-- Large screen menu -->
+    <div class="d-none d-lg-block" id="navPanels">
+      <div class="row">
+        <div id="backBtn" class="col-sm-1 text-center menu-tile">
+          <h3>
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          </h3>
+        </div>
+        <div class="col-sm-11">
+          <div class="row">
+            <div class="col-sm-3 weather text-center menu-tile">
+              <h3>Weather</h3>
+            </div>
+            <div class="col-sm-3 news text-center menu-tile">
+              <h3>News</h3>
+            </div>
+            <div class="col-sm-3 traffic text-center menu-tile">
+              <h3>Horoscope</h3>
+            </div>
+            <div class="col-sm-3 notes text-center menu-tile">
+              <h3>Notes</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Small screen menu -->
+    <div class="d-lg-none">
+      <nav class="navbar navbar-expand-lg navbar-light hat hat-nav">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('weather')">Weather</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('news')">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('traffic')">Horoscope</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('notes')">Notes</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Content panels -->
+    <div class="row" id="detailPanels">
+      <div class="col-xl-12 weather detail-screen grad">
+        <div class="container"> 
+                  
+          <div class="row">
+    
+
+        <h1><div class="temp col-lg-4"></div></h1>
+
+               
+        <h1><div class="sum col-lg-4"></div></h1>
+
+        <h1><div class="uv col-lg-4"></div></h1>
+               
+               <div class="icon col-lg-6"></div>
+                      </div>
+                      <div class="row">
+
+              <div id="map" class="col-lg-12"></div> 
+          </div>
+
+          <div class="row">
+
+
+           <h2>   <div class="hum col-lg-4"></div></h2>
+
+           
+
+          <h2><div class="sunUp col-lg-4"></div></h2>
+
+          <h2><div class="sunDwn col-lg-4"></div></h2>
+
+          <h2><div class="wind col-lg-4"></div></h2>
+
+          
+          <h2><div class="ozone col-lg-4"></div></h2>
+              </div>
+      </div>
+      <div class="col-xl-12 news detail-screen grad">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div class="col-xl-12 traffic detail-screen grad">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div class="col-xl-12 notes  detail-screen grad">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Q0RrBR7cgtlVASTV0FWfT8VwWBbb3Q"></script>
   <script src="./assets/javascript/main.js"></script>
 
 </body>
