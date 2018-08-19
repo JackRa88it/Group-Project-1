@@ -78,6 +78,8 @@ $('#SignOutButton').on('click', function(event) {
     console.error('Sign Out Error', error);
   });
 
+  location.reload();
+
 });
 
 // authentication state observer gets user data
