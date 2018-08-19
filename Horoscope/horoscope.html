@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Horoscope</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="horoscope.css" />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+</head>
+<body>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <div class="card" style="width: 28rem;">
+    <div class="card-header">Horoscope for <span id = "today">today</span></div>
+        
+    <div class="card-body">
+        <form><div class="dropdown" id="userSelection">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span id="dropdown_title">Select your sign</span>
+            </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="userSelection">
+                    <a class="dropdown-item" id = "Aries" option value = "Aries">Aries Mar 21-Apr 19</a>
+                    <a class="dropdown-item" id = "Taurus" option value = "Taurus">Taurus Apr 20-May 20</a>
+                    <a class="dropdown-item" id = "Gemini" option value = "Gemini">Gemini May 21-Jun 20</a>
+                    <a class="dropdown-item" id = "Cancer" option value = "Cancer">Cancer Jun 21-Jul 22</a>
+                    <a class="dropdown-item" id = "Leo" option value = "Leo">Leo Jul 23-Aug 22</a>
+                    <a class="dropdown-item" id = "Virgo" option value = "Virgo" ref="#">Virgo Aug 23-Sep 22</a>
+                    <a class="dropdown-item" id = "Libra" option value = "Libra">Libra Sep 23-Oct 22</a>
+                    <a class="dropdown-item" id = "Scorpio" option value = "Scorpio">Scorpio Oct 23-Nov 21</a>
+                    <a class="dropdown-item" id = "Sagittarius" option value = "Sagittarius">Sagittarius Nov 22- Dec 21</a>
+                    <a class="dropdown-item" id = "Capricorn" option value = "Capricorn">Capricorn Dec 22-Jan 19</a>
+                    <a class="dropdown-item" id = "Aquarius" option value = "Aquarius">Aquarius Jan 20-Feb 18</a>
+                    <a class="dropdown-item" id = "Pisces" option value = "Pisces">Pisces Feb 19-Mar 20</a>
+                </div></form>
+                <div id='daily-horoscope'></div>
+                    
+                    
+    </div>
+    </div>
+    </div>
+
+<script>
+
+var queryURL = "https://www.horoscopes-and-astrology.com/json"
+var currentDate= moment().format('LLLL');
+$("#today").text(currentDate);
+
+$('.dropdown-menu a').click(function(){
+    $('.dropdown-toggle').dropdown();
+    $('#dropdownMenuButton').on('click', function() {
+    $('#dropdown_title').html($(this).find('a').html());
+    
+    });
+    
+    var userSelection = $(this).attr("value")
+    $('#dropdown_title').text(userSelection)
+   
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+          console.log(response)
+          var yourScope = response.dailyhoroscope[userSelection]
+        //   console.log(userSelection)
+        //   console.log(yourScope[userSelection])
+        document.getElementById('daily-horoscope').innerHTML = yourScope;
+    });
+});
+
+</script>
+
+
+
+</body>
+</html>

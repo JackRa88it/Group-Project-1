@@ -56,7 +56,7 @@
     <div class="row">
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary horoscope">
-          <div class="card-header">Horoscope</div>
+          <div class="card-header">Horoscope for <span id="today">today</span></div>
           <div class="card-body" id="horoscope">
             <!--enter card horoscope-related HTML here-->
           </div>
@@ -67,7 +67,25 @@
         <div class="card text-white bg-primary notes">
           <div class="card-header">Notes</div>
           <div class="card-body" id="notes">
-            <!--enter card notes-related HTML here-->
+            <form><div class="dropdown" id="userSelection">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span id="dropdown_title">Select your sign</span>
+              </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="userSelection">
+                      <a class="dropdown-item" id = "Aries" option value = "Aries">Aries Mar 21-Apr 19</a>
+                      <a class="dropdown-item" id = "Taurus" option value = "Taurus">Taurus Apr 20-May 20</a>
+                      <a class="dropdown-item" id = "Gemini" option value = "Gemini">Gemini May 21-Jun 20</a>
+                      <a class="dropdown-item" id = "Cancer" option value = "Cancer">Cancer Jun 21-Jul 22</a>
+                      <a class="dropdown-item" id = "Leo" option value = "Leo">Leo Jul 23-Aug 22</a>
+                      <a class="dropdown-item" id = "Virgo" option value = "Virgo" ref="#">Virgo Aug 23-Sep 22</a>
+                      <a class="dropdown-item" id = "Libra" option value = "Libra">Libra Sep 23-Oct 22</a>
+                      <a class="dropdown-item" id = "Scorpio" option value = "Scorpio">Scorpio Oct 23-Nov 21</a>
+                      <a class="dropdown-item" id = "Sagittarius" option value = "Sagittarius">Sagittarius Nov 22- Dec 21</a>
+                      <a class="dropdown-item" id = "Capricorn" option value = "Capricorn">Capricorn Dec 22-Jan 19</a>
+                      <a class="dropdown-item" id = "Aquarius" option value = "Aquarius">Aquarius Jan 20-Feb 18</a>
+                      <a class="dropdown-item" id = "Pisces" option value = "Pisces">Pisces Feb 19-Mar 20</a>
+                  </div></form>
+                  <div id='daily-horoscope'></div>
           </div>
         </div>
       </div>
