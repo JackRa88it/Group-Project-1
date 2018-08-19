@@ -3,7 +3,7 @@ let prevMenuItem = null;
 let headers = {
     "weather": "Weather",
     "news": "News",
-    "traffic": "Horoscope",
+    "horoscope": "Horoscope",
     "notes": "Notes"
 }
 
@@ -32,8 +32,32 @@ let activateDetailView = function (menuItem) {
 let activateHomePage = function () {
     $(".container").show();
     $(".container-fluid").hide();
-    populateAll();
+    populateAllCards();
 }
+
+/* Handlers for clicks on card*/
+
+$(".container .weather").on("click", function () {
+    activateDetailView("weather");
+    populateWeatherDetail()
+});
+
+$(".container .news").on("click", function () {
+    activateDetailView("news")
+    populateNewsDetail();
+});
+
+$(".container .horoscope").on("click", function () {
+    activateDetailView("horoscope")
+    populateHoroscopeDetail();
+});
+
+$(".container .notes").on("click", function () {
+    activateDetailView("notes")
+    populateNotesDetail();
+});
+
+/* Handlers for clicks on detail menu items */
 
 $('#backBtn').on("click", function () {
     activateHomePage();
@@ -41,76 +65,75 @@ $('#backBtn').on("click", function () {
 
 $("#navPanels .weather").on("click", function () {
     selectPanel("weather");
-    populateWeather()
-});
-
-$(".container .weather").on("click", function () {
-    activateDetailView("weather");
-    populateWeather()
+    populateWeatherDetail()
 });
 
 $("#navPanels .news").on("click", function () {
     selectPanel("news")
-    populateNews();
+    populateNewsDetail();
 });
 
-$(".container .news").on("click", function () {
-    activateDetailView("news")
-    populateNews();
-});
-
-$("#navPanels .traffic").on("click", function () {
-    selectPanel("traffic")
-    populateTraffic();
-});
-
-$(".container .traffic").on("click", function () {
-    activateDetailView("traffic")
-    populateTraffic();
+$("#navPanels .horoscope").on("click", function () {
+    selectPanel("horoscope")
+    populateHoroscopeDetail();
 });
 
 $("#navPanels .notes").on("click", function () {
     selectPanel("notes");
-    populateNotes();
-});
-
-$(".container .notes").on("click", function () {
-    activateDetailView("notes")
-    populateNotes();
+    populateNotesDetail();
 });
 
 
+//on page loaded
 $(function () {
+
+    //display date and time, change every 1 sec
     var navMain = $(".navbar-collapse");
     navMain.on("click", "a:not([data-toggle])", null, function () {
         navMain.collapse('hide');
     });
 
-    populateAll()
+    populateAllCards();
 });
 
 
 /* functions that need to be implemented by ajax for all topics */
-let populateWeather = function () {
-    $("#weather, #detailPanels .weather").text("45F")
+let populateWeatherCard = function () {
+    $("#weather").text("45F - card")
 }
 
-let populateNews = function () {
-    $("#news, #detailPanels .news").text("IBM is down by 3%")
+let populateWeatherDetail = function () {
+    $("#detailPanels .weather").text("45F - detail")
 }
 
-let populateTraffic = function () {
-    $("#traffic, #detailPanels .traffic").text("Today you will succeed")
+let populateNewsCard = function () {
+    $("#news").text("IBM is down by 3% - card")
 }
 
-let populateNotes = function () {
-    $("#notes, #detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul>")
+let populateNewsDetail = function () {
+    $("#detailPanels .news").text("IBM is down by 3% - detail")
 }
 
-let populateAll = function () {
-    populateWeather();
-    populateNews();
-    populateTraffic();
-    populateNotes();
+let populateHoroscopeCard = function () {
+    $("#horoscope").text("Today you will succeed - card")
+}
+
+let populateHoroscopeDetail = function () {
+    $("#detailPanels .horoscope").text("Today you will succeed - detail")
+}
+
+let populateNotesCard = function () {
+    $("#notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - card")
+}
+
+let populateNotesDetail = function () {
+    $("#detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - detail")
+}
+
+let populateAllCards = function () {
+    populateWeatherCard();
+    populateNewsCard();
+    populateHoroscopeCard();
+    populateNotesCard();
 }
 
