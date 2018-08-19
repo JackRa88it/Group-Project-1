@@ -22,16 +22,11 @@ var database = firebase.database();
 // ----------------------
 
 
-// function assignUser(uid){
-//   currentUser = uid;
-// };
-
-
 // EVENT HANDLERS/CALLS
 // ----------------------
 
 // sign up new users
-$('#SignUpButton').on('click', function(event) {
+$('#signUpButton').on('click', function(event) {
 
   event.preventDefault();
 
@@ -46,12 +41,15 @@ $('#SignUpButton').on('click', function(event) {
     console.log(errorCode);
     console.log(errorMessage);
     // ...
+  }).then(function() {
+    location.reload()
   });
+
 
 });
 
 // sign in existing users
-$('#SignInButton').on('click', function(event) {
+$('#signInButton').on('click', function(event) {
 
   event.preventDefault();
 
@@ -63,22 +61,24 @@ $('#SignInButton').on('click', function(event) {
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
+  }).then(function() {
+    location.reload()
   });
 
 });
 
 // sign out user
-$('#SignOutButton').on('click', function(event) {
+$('#signOutButton').on('click', function(event) {
 
   event.preventDefault();
 
   firebase.auth().signOut().then(function() {
     console.log('Signed Out');
+    // reload page to get login modal again
+    location.reload();
   }, function(error) {
     console.error('Sign Out Error', error);
   });
-
-  location.reload();
 
 });
 
@@ -101,12 +101,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(isAnonymous);
     console.log(uid);
     console.log(providerData);
-
     // assignUser(uid);
     // ...
   } else {
-    // User is signed out.
-    // ...
+    // User is signed out, show login modal
+    $('#loginModal').modal('show');
   }
 });
 
@@ -174,10 +173,8 @@ $('#notesList').on('click', '#delButton', function(event) {
 
 });
 
-
 // small card size = 500x250
 
 // TO DO
-// delete button
 // checkboxes
 // get sign-in/out/refresh list working

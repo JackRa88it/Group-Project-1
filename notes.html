@@ -11,29 +11,37 @@
 
 <body>
 
-  <!-- sign in/sign up form -->
-  <div class="card" style="width: 18rem;">
-    <div class="card-header">
-      Sign In/Sign Up
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="form-group">
-          <label for="InputEmail">Email address</label>
-          <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <button class="btn btn-primary" id="signOutButton">Sign Out</button>
+
+  <!-- sign in modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="form-group">
-          <label for="InputPassword">Password</label>
-          <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="InputEmail">Email address</label>
+              <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">This address will be public in firebase. Use a unique password!</small>
+            </div>
+            <div class="form-group">
+              <label for="InputPassword">Password</label>
+              <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" id="SignUpButton">Sign Up</button>
-        <button type="submit" class="btn btn-primary" id="SignInButton">Sign In</button>
-      </form>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" id='signUpButton' data-dismiss="modal">Sign Up</button>
+          <button type="submit" class="btn btn-primary" id='signInButton' data-dismiss="modal">Sign In</button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <button class="btn btn-primary" id="SignOutButton">Sign Out</button>
 
   <!-- card for testing notes -->
   <div class="card" style="width: 500px; height: 250px">
@@ -67,7 +75,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- our css files -->
-  <script src="./assets/javascript/main.js"></script>
+  <!-- <script src="./assets/javascript/main.js"></script> -->
   <script src="./assets/javascript/notes.js"></script>
 
 </body>
