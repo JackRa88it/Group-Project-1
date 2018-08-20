@@ -21,6 +21,31 @@ var database = firebase.database();
 // FUNCTIONS
 // ----------------------
 
+function buildNote(pushKey, text) {
+
+    var card = $('<div>');
+    card.attr({'class':'card', 'id':'note' + pushKey});
+    var cardBody = $('<div>');
+    cardBody.attr('class', 'card-body note-card');
+    var row = $('<div>');
+    row.attr('class', 'row');
+    var textCol = $('<div>');
+    textCol.attr('class', 'col-10 my-auto');
+    textCol.text(text);
+    var buttonCol = $('<div>');
+    buttonCol.attr('class', 'col-2');
+    var button = $('<button>');
+    button.attr({'type':'button', 'class':'btn btn-light', 'id':'delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
+    button.text('X');
+
+    card.append(cardBody);
+    cardBody.append(row);
+    row.append(textCol, buttonCol);
+    buttonCol.append(button);
+    $('#notesList').append(card);
+
+};
+
 
 // EVENT HANDLERS/CALLS
 // ----------------------
@@ -41,8 +66,16 @@ $('#signUpButton').on('click', function(event) {
     console.log(errorCode);
     console.log(errorMessage);
     // ...
-  }).then(function() {
-    location.reload()
+  }).then(function(authReturn) {
+    var newUser = authReturn.user;
+    database.ref().on('value', function(snapshot){
+      snapshot.forEach(function(childSnapshot) {
+        if(childSnapshot.val().userID == newUser.uid){
+          buildNote(childSnapshot.key, childSnapshot.val().noteText);
+        }
+      })
+      
+    })
   });
 
 
@@ -50,19 +83,24 @@ $('#signUpButton').on('click', function(event) {
 
 // sign in existing users
 $('#signInButton').on('click', function(event) {
-
   event.preventDefault();
-
   var email = $('#InputEmail').val().trim();
   var password = $('#InputPassword').val().trim();
-
   firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     // ...
-  }).then(function() {
-    location.reload()
+  }).then(function(authReturn) {
+    var newUser = authReturn.user;
+    database.ref().on('value', function(snapshot){
+      snapshot.forEach(function(childSnapshot) {
+        if(childSnapshot.val().userID == newUser.uid){
+          buildNote(childSnapshot.key, childSnapshot.val().noteText);
+        }
+      })
+      
+    })
   });
 
 });
@@ -111,31 +149,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 // refresh notes list on child added
 database.ref().on('child_added', function(snapshot) {
-
   if (snapshot.val().userID == firebase.auth().currentUser.uid) {
-    var card = $('<div>');
-    card.attr({'class':'card', 'id':'note' + snapshot.key});
-    var cardBody = $('<div>');
-    cardBody.attr('class', 'card-body');
-    var row = $('<div>');
-    row.attr('class', 'row');
-    var textCol = $('<div>');
-    textCol.attr('class', 'col-10 my-auto');
-    textCol.text(snapshot.val().noteText);
-    var buttonCol = $('<div>');
-    buttonCol.attr('class', 'col-2');
-    var button = $('<button>');
-    button.attr({'type':'button', 'class':'btn btn-light', 'id':'delButton', 'value':snapshot.key, 'style':'float:right; height:38px'});
-    button.text('X');
-
-    card.append(cardBody);
-    cardBody.append(row);
-    row.append(textCol, buttonCol);
-    buttonCol.append(button);
-    $('#notesList').append(card);
+    buildNote(snapshot.key, snapshot.val().noteText);
   }
   else {};
-
 });
 
 // add note button
@@ -175,6 +192,8 @@ $('#notesList').on('click', '#delButton', function(event) {
 
 // small card size = 500x250
 
-// TO DO
-// checkboxes
-// get sign-in/out/refresh list working
+// ISSUES REMAINING
+// sign out button pushes title to the left
+// cannot override css for note-card height
+// cannot override clicking of card navigating to detail
+// detail view dynamically writes innerHTML, so all javascript needs delegated event listeners
