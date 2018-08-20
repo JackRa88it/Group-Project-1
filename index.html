@@ -27,10 +27,43 @@
 </head>
 
 <body>
+
+  <!-- sign in modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="InputEmail">Email address</label>
+              <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">This address will be public in firebase. Use a unique password!</small>
+            </div>
+            <div class="form-group">
+              <label for="InputPassword">Password</label>
+              <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" id='signUpButton' data-dismiss="modal">Sign Up</button>
+          <button type="submit" class="btn btn-success" id='signInButton' data-dismiss="modal">Sign In</button>
+        </div>
+      </div>
+    </div>
+  </div>  
+
   <div class="container">
     <div class="card-header text-white hat">
       <div id="header" class="card-body">
         <span id="phrase">Good Morning Sunshine!</span>
+        <!-- Jack's sign out button -->
+        <button class="btn btn-success" id="signOutButton">Sign Out</button>
         <br>
         <span id="dateTime"></span>
       </div>
@@ -76,10 +109,21 @@
 
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary notes">
-          <div class="card-header">Notes</div>
-          <div class="card-body" id="notes">
-            <!--enter card notes-related HTML here-->
+          <div class="card-header" id="notesHeader">Notes</div>
+          <div class="card-header">
+            <!-- Jack's notes code includes an input field in the header -->
+            <form>
+              <div class="row">
+                <div class="col-9 note-header-col">
+                  <input type="text" class="form-control" id="InputNote">
+                </div>
+                <div class="col-3 note-header-col">
+                  <button type="submit" class="btn btn-success" id="AddNoteButton">Add Note</button>
+                </div>
+              </div>
+            </form>
           </div>
+          <div class="card-body" id="notesList" style="overflow: auto"></div>
         </div>
       </div>
     </div>
@@ -169,6 +213,7 @@
               </div>
               
       </div>
+      </div>
       <div class="col-xl-12 news detail-screen grad">
         <!--enter detail news-related HTML here-->
       </div>
@@ -177,14 +222,39 @@
       </div>
       <div class="col-xl-12 notes  detail-screen grad">
         <!--enter detail notes-related HTML here-->
+        <div class="card text-white bg-primary notes">
+          <div class="card-header">
+            <!-- Jack's notes code includes an input field in the header -->
+            <form>
+              <div class="row">
+                <div class="col-3 my-auto">Notes</div>
+                <div class="col-6">
+                  <input type="text" class="form-control" id="InputNote" style="z-index:99">
+                </div>
+                <div class="col-3">
+                  <button type="submit" class="btn btn-success" id="AddNoteButton" style="z-index:99">Add Note</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-body" id="notesList" style="overflow: auto; z-index: 99"></div>
+        </div>
       </div>
     </div>
   </div>
 
-
-
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
 
   <script src="./assets/javascript/main.js"></script>
+  <!-- notes javascript -->
+  <script src="./assets/javascript/notes.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Q0RrBR7cgtlVASTV0FWfT8VwWBbb3Q"></script>
   <script src="weather.js"></script>
