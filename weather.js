@@ -15,14 +15,17 @@ $( document ).ready(function() {
     
     function success(position) {
       latitude = position.coords.latitude;
+      console.log("I am here!!!!!")
       longitude = position.coords.longitude;
-      console.log( latitude);
-      console.log( longitude);
+      console.log(latitude);
+      console.log(longitude);
+      town();
     
       //This is where you should continue with cleaning up indentation
       $.getJSON(
         url + apiKey + "/" + latitude + "," + longitude + "?callback=?",
         function(data) {
+          
           $(".temp").html(data.currently.temperature + "° F");
           $(".minutely").html(data.minutely.summary);
           $(".hum").html( "The Humidity is " + data.currently.humidity + "%")
@@ -174,19 +177,20 @@ $( document ).ready(function() {
                       console.log("this is the hgin" + latitude);
 
                     function town(){
-                  var Lon =parseInt(longitude)
-                  var Lat =parseInt(latitude)
-                      var queryURL="http://api.geonames.org/findNearestAddressJSON?lat="+Lat+"&lng="+Lon+"&username=cmeeder1207 "
+                      var lon =parseFloat(longitude)
+                      var lat =parseFloat(latitude)
+                      var queryURL="http://api.geonames.org/findNearestAddressJSON?lat="+lat+"&lng="+lon+"&username=cmeeder1207 "
                     
                       $.ajax({
                         url: queryURL,
                         method: "GET"
-                      }).then(function(Adress) {
-                        console.log(Adress);
-                      
-                      }) 
+                      }).then(function(address) {
+                        console.log(address);
+                        
+                        $(".location").text(address.address.placename + " " + address.address.adminCode1);
+                      });
                     
                     }
-              town()
+              
 
   });

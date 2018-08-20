@@ -107,27 +107,26 @@ let populateWeatherDetail = function () {
 }
 
 let populateNewsCard = function () {
-    $("#news").text("IBM is down by 3% - card")
+
 }
 
 let populateNewsDetail = function () {
-    $("#detailPanels .news").text("IBM is down by 3% - detail")
+   
 }
-
 let populateHoroscopeCard = function () {
-    $("#horoscope").text("Today you will succeed - card")
+ 
 }
 
 let populateHoroscopeDetail = function () {
-    $("#detailPanels .horoscope").text("Today you will succeed - detail")
+    
 }
 
 let populateNotesCard = function () {
-    $("#notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - card")
+   
 }
 
 let populateNotesDetail = function () {
-    $("#detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - detail")
+    
 }
 
 let populateAllCards = function () {
