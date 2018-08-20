@@ -17,8 +17,8 @@ $( document ).ready(function() {
       latitude = position.coords.latitude;
      
       longitude = position.coords.longitude;
-      console.log(latitude);
-      console.log(longitude);
+      // console.log(latitude);
+      // console.log(longitude);
       town();
     
       //This is where you should continue with cleaning up indentation
@@ -32,8 +32,10 @@ $( document ).ready(function() {
           $('.wind').html("The Wind Speed is " + data.currently.windSpeed)
           $('.ozone').html("The Ozone Level " + data.currently.ozone)
           $('.sum').html(data.daily.summary)
+         
+
           $('.uv').html("The UV Level " + data.currently.uvIndex)
-          console.log(data)
+          // console.log(data)
 
             var dayU = moment.unix(data.daily.data[0].sunriseTime); //seconds
             var dayD = moment.unix(data.daily.data[0].sunsetTime); //seconds
@@ -45,13 +47,13 @@ $( document ).ready(function() {
               
               // and then:
               
-              console.log(dayD.format('dddd MMMM Do YYYY, h:mm:ss a'));
+              // console.log(dayD.format('dddd MMMM Do YYYY, h:mm:ss a'));
               
 
 
 
 
-              console.log(data.currently.humidity)
+              // console.log(data.currently.humidity)
               if (data.minutely.icon==="clear-day"){
                 $(".icon").html("<img src='assets/weather-icons/clear-day.png' >")
               
@@ -158,7 +160,7 @@ $( document ).ready(function() {
                       geocoder.geocode({'location': latlng}, function(results, status) {
                         if (status === 'OK') {
                           if (results[0]) {
-                            map.setZoom(8);
+                            map.setZoom();
                             var marker = new google.maps.Marker({
                               position: latlng,
                               map: map
@@ -174,7 +176,7 @@ $( document ).ready(function() {
                       });
                   };
 
-                      console.log("this is the hgin" + latitude);
+                      // console.log("this is the hgin" + latitude);
 
                     function town(){
                       var lon =parseFloat(longitude)
@@ -185,7 +187,7 @@ $( document ).ready(function() {
                         url: queryURL,
                         method: "GET"
                       }).then(function(address) {
-                        console.log(address);
+                        // console.log(address);
                         
                         $(".location").text("Location: "+address.address.placename + " " + address.address.adminCode1);
                       });
