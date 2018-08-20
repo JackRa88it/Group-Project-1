@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .detail-screen {
-  min-height: 710px;
+  min-height: 91vh;
   padding: 25px;
 }
 
