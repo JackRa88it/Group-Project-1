@@ -83,8 +83,6 @@
             }).then(function (response) {
                 console.log(response)
                 var yourScope = response.dailyhoroscope[userSelection]
-                //   console.log(userSelection)
-                //   console.log(yourScope[userSelection])
                 document.getElementById('daily-horoscope').innerHTML = yourScope;
             });
         });

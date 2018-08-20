@@ -17,6 +17,8 @@ let selectPanel = function (menuItem) {
     $("#navPanels div").show();
     $("#detailPanels div").hide();
     $("#detailPanels div." + menuItem).show();
+    // make sure to also show all children of the "tab"
+    $("#detailPanels div." + menuItem + " div").show();
     if (prevMenuItem != null) $(".navbar").removeClass(prevMenuItem)
     $(".navbar").addClass(menuItem);
     $(".navbar-brand").text(headers[menuItem]);
@@ -52,7 +54,7 @@ $(".container .horoscope").on("click", function () {
     populateHoroscopeDetail();
 });
 
-$(".container .notes").on("click", function () {
+$("#notesHeader").on("click", function () {
     activateDetailView("notes")
     populateNotesDetail();
 });
@@ -99,35 +101,34 @@ $(function () {
 
 /* functions that need to be implemented by ajax for all topics */
 let populateWeatherCard = function () {
-    $("#weather").text("45F - card")
+   
 }
 
 let populateWeatherDetail = function () {
-    $("#detailPanels .weather").text("45F - detail")
+
 }
 
 let populateNewsCard = function () {
-    $("#news").text("IBM is down by 3% - card")
+
 }
 
 let populateNewsDetail = function () {
-    $("#detailPanels .news").text("IBM is down by 3% - detail")
+   
 }
-
 let populateHoroscopeCard = function () {
-    $("#horoscope").text("Today you will succeed - card")
+ 
 }
 
 let populateHoroscopeDetail = function () {
-    $("#detailPanels .horoscope").text("Today you will succeed - detail")
+    
 }
 
 let populateNotesCard = function () {
-    $("#notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - card")
+   
 }
 
 let populateNotesDetail = function () {
-    $("#detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - detail")
+    
 }
 
 let populateAllCards = function () {
