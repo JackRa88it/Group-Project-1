@@ -15,7 +15,7 @@ $( document ).ready(function() {
     
     function success(position) {
       latitude = position.coords.latitude;
-      console.log("I am here!!!!!")
+     
       longitude = position.coords.longitude;
       console.log(latitude);
       console.log(longitude);
