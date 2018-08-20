@@ -21,6 +21,11 @@
         <div class="card-body">
           <p class="card-text">
                 <div id='daily-horoscope'></div>
+            
+                <div class="container" id = "hor-display">
+                       
+                        
+                </div>
         </div>
       </div>
                     
@@ -29,23 +34,59 @@
     </div>
     </div>
 
-
 <script>
-var currentDate= moment().format('LLLL');
+    var scopes = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+    var allScopes = [];
+
+function addRow(index){
+$("#hor-display").append(
+                    ` <div class="row">
+                          <div class="col-sm">
+                            ${allScopes[index * 3].innerHTML}
+                          </div>
+                          <div class="col-sm">
+                            ${allScopes[index * 3+1].innerHTML}
+                          </div>
+                          <div class="col-sm">
+                            ${allScopes[index * 3+2].innerHTML}
+                          </div>
+                        </div>
+                        `
+)
+}
+
+
+var currentDate= moment().format('dddd, ' + 'LL');
 $("#today").text(currentDate)
 
 var queryURL = "https://horoscopes-and-astrology.com/template/?&width=&widthunit=px&backgroundcolor=&textcolor=&border=OFF&image=&imageunit=px&borderradius=0&padding=10&margin=15"
 $.ajax({
     url: queryURL, 
     success: function(result){
-        // console.log('result', result);
-    }});
+//    
+$("#daily-horoscope").hide()         
+$("#daily-horoscope").append(result)
 
-
-
+    setTimeout(()=> {
+         $(".hor-daily" ).each((i,e)=>{
+            $(e).attr('id', scopes[i])
+            allScopes.push($(e)[0])
+            $(e).remove()
+            $("#templateshow").hide()
+        })
+        addRow(0)
+        addRow(1)
+        addRow(2)
+        addRow(3)
+}, 200);
+}})
 </script>
 
 
-
+<style>
+.hor_row {
+    margin: 20px;
+}
+</style>
 </body>
 </html>

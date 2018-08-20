@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Horoscope</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="horoscope.css" />
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-</head>
-
 <body>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -25,7 +10,7 @@
 
         <div class="card-body">
             <form>
-                    <img src="" alt="" srcset="" id="pic" style = "width: 10vw; height: 10vw; margin: 0 auto; display: block">
+                <img src="" alt="" srcset="" id="pic" style="width: 10vw; height: 10vw; margin: 0 auto; display: block">
                 <div class="dropdown" id="userSelection">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
@@ -59,7 +44,7 @@
 
         var queryURL = "https://www.horoscopes-and-astrology.com/json"
         var currentDate = moment().format('dddd, ' + 'LL');
-        var pics= ["https://horoscopes-and-astrology.com/images/aries.svg", "https://horoscopes-and-astrology.com/images/taurus.svg", "https://horoscopes-and-astrology.com/images/gemini.svg", "https://horoscopes-and-astrology.com/images/cancer.svg", "https://horoscopes-and-astrology.com/images/leo.svg", "https://horoscopes-and-astrology.com/images/virgo.svg", "https://horoscopes-and-astrology.com/images/libra.svg", "https://horoscopes-and-astrology.com/images/scorpio.svg", "https://horoscopes-and-astrology.com/images/sagittarius.svg", "https://horoscopes-and-astrology.com/images/capricorn.svg", "https://horoscopes-and-astrology.com/images/aquarius.svg", "https://horoscopes-and-astrology.com/images/pisces.svg"]
+        var pics = ["https://horoscopes-and-astrology.com/images/aries.svg", "https://horoscopes-and-astrology.com/images/taurus.svg", "https://horoscopes-and-astrology.com/images/gemini.svg", "https://horoscopes-and-astrology.com/images/cancer.svg", "https://horoscopes-and-astrology.com/images/leo.svg", "https://horoscopes-and-astrology.com/images/virgo.svg", "https://horoscopes-and-astrology.com/images/libra.svg", "https://horoscopes-and-astrology.com/images/scorpio.svg", "https://horoscopes-and-astrology.com/images/sagittarius.svg", "https://horoscopes-and-astrology.com/images/capricorn.svg", "https://horoscopes-and-astrology.com/images/aquarius.svg", "https://horoscopes-and-astrology.com/images/pisces.svg"]
         var scopes = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
         var allScopes = [];
         $("#today").text(currentDate);
@@ -76,7 +61,7 @@
             $('#dropdown_title').text(userSelection)
             console.log(userSelection);
             var newpic = pics[scopes.indexOf(userSelection)]
-            $("#pic").attr("src",newpic)
+            $("#pic").attr("src", newpic)
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -90,7 +75,3 @@
         });
 
     </script>
-
-</body>
-
-</html>
