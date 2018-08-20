@@ -124,19 +124,11 @@ let populateHoroscopeDetail = function () {
 }
 
 let populateNotesCard = function () {
-<<<<<<< HEAD
-    // $("#notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - card")
-}
-
-let populateNotesDetail = function () {
-    // $("#detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - detail")
-=======
    
 }
 
 let populateNotesDetail = function () {
     
->>>>>>> master
 }
 
 let populateAllCards = function () {
