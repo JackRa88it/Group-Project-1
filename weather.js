@@ -26,13 +26,13 @@ $( document ).ready(function() {
         url + apiKey + "/" + latitude + "," + longitude + "?callback=?",
         function(data) {
           
-          $(".temp").html(data.currently.temperature + "° F");
+          $(".temp").html("Temperature: " + data.currently.temperature + "° F");
           $(".minutely").html(data.minutely.summary);
           $(".hum").html( "The Humidity is " + data.currently.humidity + "%")
-          $('.wind').html("The Wind Speed is" + data.currently.windSpeed)
-          $('.ozone').html("The Ozone Level" + data.currently.ozone)
+          $('.wind').html("The Wind Speed is " + data.currently.windSpeed)
+          $('.ozone').html("The Ozone Level " + data.currently.ozone)
           $('.sum').html(data.daily.summary)
-          $('.uv').html("The UV Level" + data.currently.uvIndex)
+          $('.uv').html("The UV Level " + data.currently.uvIndex)
           console.log(data)
 
             var dayU = moment.unix(data.daily.data[0].sunriseTime); //seconds
@@ -187,7 +187,7 @@ $( document ).ready(function() {
                       }).then(function(address) {
                         console.log(address);
                         
-                        $(".location").text(address.address.placename + " " + address.address.adminCode1);
+                        $(".location").text("Location: "+address.address.placename + " " + address.address.adminCode1);
                       });
                     
                     }
