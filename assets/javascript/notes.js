@@ -24,9 +24,9 @@ var database = firebase.database();
 function buildNote(pushKey, text) {
 
     var card = $('<div>');
-    card.attr({'class':'card', 'id':'note' + pushKey});
+    card.attr({'class':'card note-card', 'id':'note' + pushKey});
     var cardBody = $('<div>');
-    cardBody.attr('class', 'card-body note-card');
+    cardBody.attr('class', 'card-body');
     var row = $('<div>');
     row.attr('class', 'row');
     var textCol = $('<div>');
@@ -197,3 +197,4 @@ $('#notesList').on('click', '#delButton', function(event) {
 // cannot override css for note-card height
 // cannot override clicking of card navigating to detail
 // detail view dynamically writes innerHTML, so all javascript needs delegated event listeners
+// new note duplicates list

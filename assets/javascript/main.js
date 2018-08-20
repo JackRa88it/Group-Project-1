@@ -17,6 +17,8 @@ let selectPanel = function (menuItem) {
     $("#navPanels div").show();
     $("#detailPanels div").hide();
     $("#detailPanels div." + menuItem).show();
+    // make sure to also show all children of the "tab"
+    $("#detailPanels div." + menuItem + " div").show();
     if (prevMenuItem != null) $(".navbar").removeClass(prevMenuItem)
     $(".navbar").addClass(menuItem);
     $(".navbar-brand").text(headers[menuItem]);
@@ -52,7 +54,7 @@ $(".container .horoscope").on("click", function () {
     populateHoroscopeDetail();
 });
 
-$(".container .notes").on("click", function () {
+$("#notesHeader").on("click", function () {
     activateDetailView("notes")
     populateNotesDetail();
 });
@@ -123,11 +125,11 @@ let populateHoroscopeDetail = function () {
 }
 
 let populateNotesCard = function () {
-    $("#notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - card")
+    // $("#notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - card")
 }
 
 let populateNotesDetail = function () {
-    $("#detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - detail")
+    // $("#detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul> - detail")
 }
 
 let populateAllCards = function () {

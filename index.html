@@ -98,21 +98,21 @@
 
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary notes">
+          <div class="card-header" id="notesHeader">Notes</div>
           <div class="card-header">
             <!-- Jack's notes code includes an input field in the header -->
             <form>
               <div class="row">
-                <div class="col-3 my-auto">Notes</div>
-                <div class="col-6">
-                  <input type="text" class="form-control" id="InputNote" style="z-index:99">
+                <div class="col-9 note-header-col">
+                  <input type="text" class="form-control" id="InputNote">
                 </div>
-                <div class="col-3">
-                  <button type="submit" class="btn btn-success" id="AddNoteButton" style="z-index:99">Add Note</button>
+                <div class="col-3 note-header-col">
+                  <button type="submit" class="btn btn-success" id="AddNoteButton">Add Note</button>
                 </div>
               </div>
             </form>
           </div>
-          <div class="card-body" id="notesList" style="overflow: auto; z-index: 99"></div>
+          <div class="card-body" id="notesList" style="overflow: auto"></div>
         </div>
       </div>
     </div>
