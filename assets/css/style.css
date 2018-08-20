@@ -137,3 +137,30 @@ h1, h2, h3, h4, h5 {
   background: linear-gradient(to bottom, rgba(193, 223, 26, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1df1a', endColorstr='#ffffff', GradientType=0);
 }
+
+.note-card {
+  height: auto;
+  margin: 10px;
+  color: green;
+  background-color: rgb(232, 247, 152);
+}
+
+#notesHeader:hover {
+  background-color: #2ca728;
+  
+}
+
+#delButton {
+  background-color: rgb(221, 240, 118);
+  border: none;
+}
+
+#notesList {
+  padding:10px;
+}
+
+#signOutButton {
+  display: block;
+  float: right;
+  margin: 10px 10px;
+}
