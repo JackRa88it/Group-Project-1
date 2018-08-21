@@ -20,7 +20,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,8 +38,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success" id='signUpButton' data-dismiss="modal">Sign Up</button>
-          <button type="submit" class="btn btn-success" id='signInButton' data-dismiss="modal">Sign In</button>
+          <button type="submit" class="btn btn-success" id='modalSignUpButton' data-dismiss="modal">Sign Up</button>
+          <button type="submit" class="btn btn-success" id='modalLogInButton' data-dismiss="modal">Log In</button>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
       <div id="header" class="card-body">
         <span id="phrase">Good Morning Sunshine!</span>
         <!-- Jack's sign out button -->
-        <button class="btn btn-success" id="signOutButton">Sign Out</button>
+        <button class="btn btn-success" id="logInOutButton">Log In</button>
         <br>
         <span id="dateTime"></span>
       </div>
@@ -209,22 +209,39 @@
       </div>
       <div class="col-xl-12 notes  detail-screen grad">
         <!--enter detail notes-related HTML here-->
-        <div class="card text-white bg-primary" id="detailNotes">
-          <div class="card-header" id="detailNotesHeader">
-            <!-- Jack's notes code includes an input field in the header -->
-            <form>
-              <div class="row">
-                <div class="col-9">
-                  <input type="text" class="form-control" placeholder="enter note text..." id="detailInputNote">
-                </div>
-                <div class="col-3">
-                  <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
-                </div>
+        <div class="row">
+
+          <div class="col-md-6">
+
+            <div class="card text-white" id="detailNotesLeft">
+              <div>
+                <img src="assets/images/notebook-e1476214349781.jpeg" alt="background image" id="detailNotesImg">
               </div>
-            </form>
+            </div>
+
           </div>
-          <div class="card-body" id="detailNotesList" style="overflow: auto"></div>
+          <div class="col-md-6">
+
+            <div class="card text-white" id="detailNotesRight">
+              <div class="card-header detailNotesHeader">
+                <form>
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" class="form-control" placeholder="enter note text..." id="detailInputNote">
+                    </div>
+                    <div class="col-3">
+                      <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-body" id="detailNotesList" style="overflow: auto"></div>
+            </div>
+
+          </div>
+
         </div>
+        
       </div>
     </div>
   </div>

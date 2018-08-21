@@ -26,7 +26,7 @@ function buildNote(pushKey, text) {
   var card = $('<div>');
   card.attr({'class':'card note-card', 'id':'note' + pushKey});
   var cardBody = $('<div>');
-  cardBody.attr('class', 'card-body');
+  cardBody.attr('class', 'card-body note-body');
   var row = $('<div>');
   row.attr('class', 'row');
   var textCol = $('<div>');
@@ -35,7 +35,7 @@ function buildNote(pushKey, text) {
   var buttonCol = $('<div>');
   buttonCol.attr('class', 'col-2');
   var button = $('<button>');
-  button.attr({'type':'button', 'class':'btn btn-light delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
+  button.attr({'type':'button', 'class':'btn btn-light delButton', 'value':pushKey});
   button.text('X');
   card.append(cardBody);
   cardBody.append(row);
@@ -47,7 +47,7 @@ function buildNote(pushKey, text) {
   var dCard = $('<div>');
   dCard.attr({'class':'card note-card', 'id':'dNote' + pushKey});
   var dCardBody = $('<div>');
-  dCardBody.attr('class', 'card-body');
+  dCardBody.attr('class', 'card-body note-body');
   var dRow = $('<div>');
   dRow.attr('class', 'row');
   var dTextCol = $('<div>');
@@ -56,7 +56,7 @@ function buildNote(pushKey, text) {
   var dButtonCol = $('<div>');
   dButtonCol.attr('class', 'col-2');
   var dButton = $('<button>');
-  dButton.attr({'type':'button', 'class':'btn btn-light delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
+  dButton.attr({'type':'button', 'class':'btn btn-light delButton', 'value':pushKey});
   dButton.text('X');
   dCard.append(dCardBody);
   dCardBody.append(dRow);
@@ -66,12 +66,12 @@ function buildNote(pushKey, text) {
 
 };
 
-function signInOutButton() {
+function logInOutButton() {
   if (firebase.auth().currentUser) {
-    $('#signOutButton').text('Sign Out');
+    $('#logInOutButton').text('Log Out');
   }
   else {
-    $('#signOutButton').text('Sign In');
+    $('#logInOutButton').text('Log In');
   };
 };
 
@@ -80,7 +80,7 @@ function signInOutButton() {
 // ----------------------
 
 // sign up new users
-$('#signUpButton').on('click', function(event) {
+$('#modalSignUpButton').on('click', function(event) {
 
   event.preventDefault();
 
@@ -107,11 +107,10 @@ $('#signUpButton').on('click', function(event) {
     })
   });
 
-
 });
 
 // sign in existing users
-$('#signInButton').on('click', function(event) {
+$('#modalLogInButton').on('click', function(event) {
   event.preventDefault();
   var email = $('#InputEmail').val().trim();
   var password = $('#InputPassword').val().trim();
@@ -135,17 +134,23 @@ $('#signInButton').on('click', function(event) {
 });
 
 // sign out user
-$('#signOutButton').on('click', function(event) {
+$('#logInOutButton').on('click', function(event) {
 
   event.preventDefault();
 
-  firebase.auth().signOut().then(function() {
-    console.log('Signed Out');
-    // reload page to get login modal again
-    location.reload();
-  }, function(error) {
-    console.error('Sign Out Error', error);
-  });
+  // if for log in/out
+  if (firebase.auth().currentUser) {
+    firebase.auth().signOut().then(function() {
+      console.log('Signed Out');
+      // reload page to get login modal again
+      location.reload();
+    }, function(error) {
+      console.error('Sign Out Error', error);
+    });
+  }
+  else {
+    $('#loginModal').modal('show');
+  }
 
 });
 
@@ -171,11 +176,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     // assignUser(uid);
     // ...
   } else {
-    // User is signed out, show login modal
-    $('#loginModal').modal('show');
+    // User is signed out
   }
 
-  signInOutButton();
+  logInOutButton();
 
 });
 

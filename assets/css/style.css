@@ -145,6 +145,10 @@ h1, h2, h3, h4, h5 {
   background-color: rgb(232, 247, 152);
 }
 
+.note-body {
+  padding: 8px 14px;
+}
+
 #notesHeader:hover {
   background-color: #2ca728;
   
@@ -154,31 +158,54 @@ h1, h2, h3, h4, h5 {
   border: 2px solid red;
 }
 
-#delButton {
+.delButton {
   background-color: rgb(221, 240, 118);
   border: none;
+  border-radius: 100px;
+  float:right;
+  height:34px;
+  color:green;
+}
+
+.delButton:hover {
+  background-color: green;
+  color: rgb(221, 240, 118);
 }
 
 #notesList {
-  padding:10px;
-}
-
-#detailNotes {
-  margin: 100px 150px;
-  border: none;
-}
-
-#detailNotesHeader,
-#detailNotesList {
-  background-color: rgb(193, 223, 26);
-  border: none;
-}
-
-#detailNotesList {
   padding: 10px;
 }
 
-#signOutButton {
+#detailNotesLeft {
+  margin: 100px 0 0 100px;
+  /* border: none; */
+  height: 460px;
+  background-color: rgb(221, 240, 118);
+  overflow: auto;
+}
+
+#detailNotesImg {
+  height: 470px;
+  opacity: 0.7;
+  filter: grayscale(50%) contrast(50%) brightness(150%);
+}
+
+#detailNotesRight {
+  margin: 100px 100px 0 0;
+  height: 460px;
+  font-size: 18px;
+}
+
+.detailNotesHeader {
+  background-color: rgb(193, 223, 26);
+}
+
+#detailNotesList {
+  background-color: rgb(193, 223, 26);
+  padding: 10px;
+}
+
+#logInOutButton {
   display: block;
   float: right;
   margin: 10px 10px;
