@@ -4,24 +4,19 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Daily Dashboard</title>
+  <title>Good Morning, Sunshine!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
 
 
   <!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  
+  <link rel="stylesheet" href="assets/css/cool-new-news.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="assets/css/cool-new-news.css">
 </head>
+
 
 <body>
 
@@ -30,7 +25,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Sign In</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Log In</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -48,8 +43,8 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success" id='signUpButton' data-dismiss="modal">Sign Up</button>
-          <button type="submit" class="btn btn-success" id='signInButton' data-dismiss="modal">Sign In</button>
+          <button type="submit" class="btn btn-success" id='modalSignUpButton' data-dismiss="modal">Sign Up</button>
+          <button type="submit" class="btn btn-success" id='modalLogInButton' data-dismiss="modal">Log In</button>
         </div>
       </div>
     </div>
@@ -58,9 +53,9 @@
   <div class="container">
     <div class="card-header text-white hat">
       <div id="header" class="card-body">
-        <span id="phrase">Good Morning Sunshine!</span>
+        <span id="phrase">Good Morning, Sunshine!</span>
         <!-- Jack's sign out button -->
-        <button class="btn btn-success" id="signOutButton">Sign Out</button>
+        <button class="btn btn-success" id="logInOutButton">Log In</button>
         <br>
         <span id="dateTime"></span>
       </div>
@@ -74,16 +69,16 @@
           <div class="card-body" id="weather">
             <div class="row">
               <div class="col-md-4">
-                  <div class="w icon col-md-12"></div>
+                <div class="w icon col-md-12"></div>
               </div>
               <div class="col-md-8">
                 <div class="row">
-                    
-                    <div class="w temp col-md-12"></div>
-                    <div class="w hourly col-md-12"></div>
-                    <div class="w location col-md-12"></div>
-                    <div class="w more col-md-12" style="display:none">
-                      <a href="#">More...</a><br><br></div>
+
+                  <div class="w temp col-md-12"></div>
+                  <div class="w hourly col-md-12"></div>
+                  <div class="w location col-md-12"></div>
+                  <div class="w more col-md-12" style="display:none">
+                    <a href="#">More...</a><br><br></div>
                 </div>
               </div>
             </div>
@@ -106,20 +101,18 @@
     <div class="row">
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary horoscope">
-          <div class="card-header">Horoscope for
-            <span class="today-horoscope">today</span>
-          </div>
+          <div class="card-header">Horoscope</div>
           <div class="card-body" id="horoscope">
             <div class="row">
               <div class="col-sm-4">
-                  <img src="" alt="" srcset="" class="pic img-fluid">
+                <img src="" alt="" srcset="" class="pic img-fluid">
               </div>
               <div class='col-sm-8 daily-horoscope'></div>
             </div>
             <br>
             <form>
               <div class="dropdown" id="userSelection">
-                
+
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <span id="dropdown_title">Select your sign</span>
@@ -139,7 +132,7 @@
                   <a class="dropdown-item" id="Pisces" option value="Pisces">Pisces Feb 19-Mar 20</a>
                 </div>
             </form>
-            
+
             </div>
           </div>
         </div>
@@ -149,18 +142,20 @@
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary notes">
           <div class="card-header" id="notesHeader">Notes</div>
-            <div class="card-body notesList">
-              <form>
-                <div class="row">
-                  <div class="col-9 note-header-col" style="padding-left:25px">
-                    <input type="text" class="form-control" id="InputNote">
-                  </div>
-                  <div class="col-3 note-header-col">
-                    <button type="submit" class="btn btn-success" id="AddNoteButton">Add Note</button>
-                  </div>
+          <div class="card-header">
+            <!-- Jack's notes code -->
+            <form>
+              <div class="row">
+                <div class="col-9 note-header-col">
+                  <input type="text" class="form-control" placeholder="enter note text..." id="InputNote">
                 </div>
-              </form>
-            </div>
+                <div class="col-3 note-header-col">
+                  <button type="submit" class="btn btn-success" id="AddNoteButton">Add Note</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="card-body" id="notesList" style="overflow: auto"></div>
         </div>
       </div>
 
@@ -228,23 +223,23 @@
     <!-- Detail panels -->
     <div class="row" id="detailPanels">
       <div class="col-xl-12 weather detail-screen grad">
-          <div class="row">
-              <div class="col-md-2">
-                  <div class="w icon col-md-12"></div>
-              </div>
-              <div class="col-md-10">
-                <div class="row">
-                    
-                    <h3 class="w temp col-md-12"></h3>
-                    <div class="w hourly col-md-12"></div>
-                    <div class="w hum col-md-12"></div>
-                    <div class="w wind col-md-12"></div>
-                    <div class="w ozone col-md-12"></div>
-                    <div class="w sum col-md-12"></div>
-                    <div class="w location col-md-12"></div>
-                </div>
-              </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="w icon col-md-12"></div>
+          </div>
+          <div class="col-md-10">
+            <div class="row">
+
+              <h3 class="w temp col-md-12"></h3>
+              <div class="w hourly col-md-12"></div>
+              <div class="w hum col-md-12"></div>
+              <div class="w wind col-md-12"></div>
+              <div class="w ozone col-md-12"></div>
+              <div class="w sum col-md-12"></div>
+              <div class="w location col-md-12"></div>
             </div>
+          </div>
+        </div>
       </div>
       <div class="col-xl-12 news detail-screen grad">
         <!--enter detail news-related HTML here-->
@@ -254,45 +249,75 @@
 
       </div>
       <div class="col-xl-12 horoscope detail-screen grad">
-          <h3 class="today-horoscope"></h3>
-          <img src="" alt="" srcset="" class="pic" style="width: 10vw; height: 10vw; margin: 0 auto; display: block">
-          <div class='daily-horoscope'></div>
-      </div>
-      <div class="col-xl-12 notes  detail-screen grad">
-        <!--enter detail notes-related HTML here-->
-        <div class="detailNotesControls">
-            <!-- Jack's notes code includes an input field in the header -->
-            <form>
-              <div class="row">
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="detailInputNote"><br>
-                </div>
-                <div class="col-sm-1">
-                  <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
-
-                </div>
-              </div>
-              <div class="row notesList">
-              </div>
-            </form>
-            
-          </div>
+        <button class="btn btn-secondary" id="scopeBtn" type="button">
+          <span>Get More Horoscopes</span>
+        </button>
+        <h3 class="today-horoscope"></h3>
+        <img src="" alt="" srcset="" class="pic" style="width: 10vw; height: 10vw; margin: 0 auto; display: block">
+        <div class='daily-horoscope'>
         </div>
+        <div class="container" id="hor-display"></div>
       </div>
     </div>
+    <div class="col-xl-12 notes  detail-screen grad">
+      <!--enter detail notes-related HTML here-->
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div class="card text-white" id="detailNotesLeft">
+            <div>
+              <img src="assets/images/notebook-e1476214349781.jpeg" alt="background image" id="detailNotesImg">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+
+          <div class="card text-white" id="detailNotesRight">
+            <div class="card-header detailNotesHeader">
+              <form>
+                <div class="row">
+                  <div class="col-9">
+                    <input type="text" class="form-control" placeholder="enter note text..." id="detailInputNote">
+                  </div>
+                  <div class="col-3">
+                    <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-body" id="detailNotesList" style="overflow: auto"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-    <!-- firebase refs -->
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Q0RrBR7cgtlVASTV0FWfT8VwWBbb3Q"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+
+  <!-- firebase refs -->
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Q0RrBR7cgtlVASTV0FWfT8VwWBbb3Q"></script>
+
 
     <script src="./assets/javascript/main.js"></script>
     <script src="./assets/javascript/weather.js"></script>
