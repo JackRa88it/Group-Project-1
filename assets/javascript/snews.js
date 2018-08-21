@@ -58,7 +58,7 @@ for (var i = 0; i < numTopArticles; i++) {
   // Newspaper logo above headline
 
   var sourceLogo = $('<img>');
-  sourceLogo.attr('src', './assets/images/nytLogo.png');
+  sourceLogo.attr('src', './assets/javascript/nytLogo.png');
   sourceLogo.attr('class', 'nytlogo');
   $topArticleListItem.prepend(sourceLogo);
 
