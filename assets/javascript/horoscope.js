@@ -70,7 +70,6 @@ $(document).ready(function () {
             method: "GET",
             success: function (result) {
                 console.log(result)
-                debugger;
                 $(".daily-horoscope").hide()
                 $(".daily-horoscope").append(result)
 
