@@ -2,16 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 
-    <title>Daily Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <title>Daily Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
+  <!--<link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -64,10 +71,20 @@
           <div class="card-header">Weather</div>
           <div class="card-body" id="weather">
             <div class="row">
-            <div class="w temp col-md-4"></div><div id="minutely"></div>
-            <div class="w location col-md-4"></div>
-            <div class="w icon col-md-4"></div>
-          </div>
+              <div class="col-md-4">
+                  <div class="w icon col-md-12"></div>
+              </div>
+              <div class="col-md-8">
+                <div class="row">
+                    
+                    <div class="w temp col-md-12"></div>
+                    <div class="w hourly col-md-12"></div>
+                    <div class="w location col-md-12"></div>
+                    <div class="w more col-md-12" style="display:none">
+                      <a href="#">More...</a><br><br></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -85,10 +102,20 @@
     <div class="row">
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary horoscope">
-          <div class="card-header">Horoscope for <span id="today">today</span></div>
+          <div class="card-header">Horoscope for
+            <span class="today-horoscope">today</span>
+          </div>
           <div class="card-body" id="horoscope">
+            <div class="row">
+              <div class="col-sm-4">
+                  <img src="" alt="" srcset="" class="pic img-fluid">
+              </div>
+              <div class='col-sm-8 daily-horoscope'></div>
+            </div>
+            <br>
             <form>
               <div class="dropdown" id="userSelection">
+                
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <span id="dropdown_title">Select your sign</span>
@@ -108,19 +135,20 @@
                   <a class="dropdown-item" id="Pisces" option value="Pisces">Pisces Feb 19-Mar 20</a>
                 </div>
             </form>
-            <div id='daily-horoscope'></div>
+            
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="col-lg-6 portfolio-item">
-          <div class="card text-white bg-primary notes">
-            <div class="card-header" id="notesHeader">Notes</div>
-            <div class="card-header">
-              <!-- Jack's notes code includes an input field in the header -->
+
+      <div class="col-lg-6 portfolio-item">
+        <div class="card text-white bg-primary notes">
+          <div class="card-header" id="notesHeader">Notes</div>
+            <div class="card-body notesList">
               <form>
                 <div class="row">
-                  <div class="col-9 note-header-col">
+                  <div class="col-9 note-header-col" style="padding-left:25px">
                     <input type="text" class="form-control" id="InputNote">
                   </div>
                   <div class="col-3 note-header-col">
@@ -129,123 +157,117 @@
                 </div>
               </form>
             </div>
-            <div class="card-body" id="notesList" style="overflow: auto"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Detail area (2nd screen) -->
+  <div class="container-fluid">
+
+    <!-- Large screen menu -->
+    <div class="d-none d-lg-block" id="navPanels">
+      <div class="row">
+        <div id="backBtn" class="col-sm-1 text-center menu-tile">
+          <h3>
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          </h3>
+        </div>
+        <div class="col-sm-11">
+          <div class="row">
+            <div class="col-sm-3 weather text-center menu-tile">
+              <h3>Weather</h3>
+            </div>
+            <div class="col-sm-3 news text-center menu-tile">
+              <h3>News</h3>
+            </div>
+            <div class="col-sm-3 horoscope text-center menu-tile">
+              <h3>Horoscope</h3>
+            </div>
+            <div class="col-sm-3 notes text-center menu-tile">
+              <h3>Notes</h3>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
-    <!-- Detail area (2nd screen) -->
-    <div class="container-fluid">
-
-      <!-- Large screen menu -->
-      <div class="d-none d-lg-block" id="navPanels">
-        <div class="row">
-          <div id="backBtn" class="col-sm-1 text-center menu-tile">
-            <h3>
-              <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-            </h3>
-          </div>
-          <div class="col-sm-11">
-            <div class="row">
-              <div class="col-sm-3 weather text-center menu-tile">
-                <h3>Weather</h3>
-              </div>
-              <div class="col-sm-3 news text-center menu-tile">
-                <h3>News</h3>
-              </div>
-              <div class="col-sm-3 horoscope text-center menu-tile">
-                <h3>Horoscope</h3>
-              </div>
-              <div class="col-sm-3 notes text-center menu-tile">
-                <h3>Notes</h3>
-              </div>
-            </div>
-          </div>
+    <!-- Small screen menu -->
+    <div class="d-lg-none">
+      <nav class="navbar navbar-expand-lg navbar-light hat hat-nav">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('weather')">Weather</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('news')">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('horoscope')">Horoscope</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:selectPanel('notes')">Notes</a>
+            </li>
+          </ul>
         </div>
+      </nav>
+    </div>
 
-      </div>
-
-      <!-- Small screen menu -->
-      <div class="d-lg-none">
-        <nav class="navbar navbar-expand-lg navbar-light hat hat-nav">
-          <a class="navbar-brand" href="#">Logo</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:selectPanel('weather')">Weather</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:selectPanel('news')">News</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:selectPanel('horoscope')">Horoscope</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:selectPanel('notes')">Notes</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-
-      <!-- Detail panels -->
-      <div class="row" id="detailPanels">
-        <div class="col-xl-12 weather detail-screen grad">
-
-          <div class="container">
-
-        <div class="container"> 
-                  
+    <!-- Detail panels -->
+    <div class="row" id="detailPanels">
+      <div class="col-xl-12 weather detail-screen grad">
           <div class="row">
-        <div class="temp col-lg-4"></div>                         
-        <div class="sum col-lg-4"></div>
-        <div class="uv col-lg-4"></div>                         
-               <div class="icon col-lg-6"></div>
-                      </div>
-
-            <div class="row">
-              <div id="map" class="col-lg-12"></div>
-            </div>
-
-
-          <div class="row">      
-             <div class="hum col-lg-4"></div>
-         <div class="sunUp col-lg-4"></div>
-         <div class="sunDwn col-lg-4"></div>
-         <div class="wind col-lg-4"></div>                    
-         <div class="ozone col-lg-4"></div>
+              <div class="col-md-2">
+                  <div class="w icon col-md-12"></div>
               </div>
-              
-      </div>
+              <div class="col-md-10">
+                <div class="row">
+                    
+                    <h3 class="w temp col-md-12"></h3>
+                    <div class="w hourly col-md-12"></div>
+                    <div class="w hum col-md-12"></div>
+                    <div class="w wind col-md-12"></div>
+                    <div class="w ozone col-md-12"></div>
+                    <div class="w sum col-md-12"></div>
+                    <div class="w location col-md-12"></div>
+                </div>
+              </div>
+            </div>
       </div>
       <div class="col-xl-12 news detail-screen grad">
         <!--enter detail news-related HTML here-->
       </div>
       <div class="col-xl-12 horoscope detail-screen grad">
-        <!--enter detail horoscope-related HTML here-->
+          <h3 class="today-horoscope"></h3>
+          <img src="" alt="" srcset="" class="pic" style="width: 10vw; height: 10vw; margin: 0 auto; display: block">
+          <div class='daily-horoscope'></div>
       </div>
       <div class="col-xl-12 notes  detail-screen grad">
         <!--enter detail notes-related HTML here-->
-        <div class="card text-white bg-primary detailNotesControls">
-          <div class="card-header">
+        <div class="detailNotesControls">
             <!-- Jack's notes code includes an input field in the header -->
             <form>
               <div class="row">
-                <div class="col-9">
-                  <input type="text" class="form-control" id="detailInputNote">
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="detailInputNote"><br>
                 </div>
-                <div class="col-3">
+                <div class="col-sm-1">
                   <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
 
                 </div>
-              </form>
-            </div>
-            <div class="card-body" id="detailNotesList" style="overflow: auto"></div>
+              </div>
+              <div class="row notesList">
+              </div>
+            </form>
+            
           </div>
         </div>
       </div>
@@ -262,19 +284,11 @@
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-messaging.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-functions.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-storage.js"></script>
-
-    <!-- bootstrap refs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-
-    <!-- google maps refs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Q0RrBR7cgtlVASTV0FWfT8VwWBbb3Q"></script>
 
     <script src="./assets/javascript/main.js"></script>
     <script src="./assets/javascript/weather.js"></script>
+    <script src="./assets/javascript/horoscope.js"></script>
     <!-- notes javascript -->
     <script src="./assets/javascript/notes.js"></script>
 

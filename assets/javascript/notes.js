@@ -36,13 +36,13 @@ function buildNote(pushKey, text) {
     buttonCol.attr('class', 'col-2');
     var button = $('<button>');
     button.attr({'type':'button', 'class':'btn btn-light', 'id':'delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
-    button.text('X');
+    button.html('<i class="fas fa-times"></i>');
 
     card.append(cardBody);
     cardBody.append(row);
     row.append(textCol, buttonCol);
     buttonCol.append(button);
-    $('#notesList').append(card);
+    $('.notesList').append(card);
 
 };
 
@@ -176,7 +176,7 @@ $('#AddNoteButton').on('click', function(event) {
 });
 
 // delete note button
-$('#notesList').on('click', '#delButton', function(event) {
+$('.notesList').on('click', '#delButton', function(event) {
 
   event.preventDefault();
 
