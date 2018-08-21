@@ -64,7 +64,30 @@ function buildNote(pushKey, text) {
   dButtonCol.append(dButton);
   $('#detailNotesList').append(dCard);
 
+<<<<<<< HEAD
 };
+=======
+    var card = $('<div>');
+    card.attr({'class':'card note-card', 'id':'note' + pushKey});
+    var cardBody = $('<div>');
+    cardBody.attr('class', 'card-body');
+    var row = $('<div>');
+    row.attr('class', 'row');
+    var textCol = $('<div>');
+    textCol.attr('class', 'col-10 my-auto');
+    textCol.text(text);
+    var buttonCol = $('<div>');
+    buttonCol.attr('class', 'col-2');
+    var button = $('<button>');
+    button.attr({'type':'button', 'class':'btn btn-light', 'id':'delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
+    button.html('<i class="fas fa-times"></i>');
+
+    card.append(cardBody);
+    cardBody.append(row);
+    row.append(textCol, buttonCol);
+    buttonCol.append(button);
+    $('.notesList').append(card);
+>>>>>>> ec13bbba85f1176849ed6ac7b78294326efda89a
 
 function logInOutButton() {
   if (firebase.auth().currentUser) {
@@ -240,7 +263,11 @@ $('#detailAddNoteButton').on('click', function(event) {
 
 
 // delete note button
+<<<<<<< HEAD
 $('#notesList, #detailNotesList').on('click', '.delButton', function(event) {
+=======
+$('.notesList').on('click', '#delButton', function(event) {
+>>>>>>> ec13bbba85f1176849ed6ac7b78294326efda89a
 
   event.preventDefault();
 

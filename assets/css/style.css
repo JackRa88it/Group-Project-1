@@ -7,7 +7,7 @@ body {
 }
 
 .card {
-  height: 300px;
+  height: 350px;
 }
 
 .card-header {
@@ -138,16 +138,28 @@ h1, h2, h3, h4, h5 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1df1a', endColorstr='#ffffff', GradientType=0);
 }
 
+#detailPanels h1, #detailPanels h2, #detailPanels h3 {
+  color:#333333;
+}
+
+.grad {
+  padding-top:65px;
+}
+
 .note-card {
   height: auto;
   margin: 10px;
   color: green;
   background-color: rgb(232, 247, 152);
+  width:100%;
 }
 
+<<<<<<< HEAD
 .note-body {
   padding: 8px 14px;
 }
+=======
+>>>>>>> ec13bbba85f1176849ed6ac7b78294326efda89a
 
 #notesHeader:hover {
   background-color: #2ca728;

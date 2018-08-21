@@ -49,7 +49,7 @@ $(".container .news").on("click", function () {
     populateNewsDetail();
 });
 
-$(".container .horoscope").on("click", function () {
+$(".container .horoscope .card-header").on("click", function () {
     activateDetailView("horoscope")
     populateHoroscopeDetail();
 });
