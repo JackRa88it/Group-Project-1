@@ -26,11 +26,11 @@ function buildNote(pushKey, text) {
   var card = $('<div>');
   card.attr({'class':'card note-card', 'id':'note' + pushKey});
   var cardBody = $('<div>');
-  cardBody.attr('class', 'card-body note-body');
+  cardBody.attr({'class':'card-body note-body', 'value':pushKey});
   var row = $('<div>');
   row.attr('class', 'row');
   var textCol = $('<div>');
-  textCol.attr('class', 'col-10 my-auto');
+  textCol.attr({'class':'col-10 my-auto note-text', 'contenteditable':'true'});
   textCol.text(text);
   var buttonCol = $('<div>');
   buttonCol.attr('class', 'col-2');
@@ -47,11 +47,11 @@ function buildNote(pushKey, text) {
   var dCard = $('<div>');
   dCard.attr({'class':'card note-card', 'id':'dNote' + pushKey});
   var dCardBody = $('<div>');
-  dCardBody.attr('class', 'card-body note-body');
+  dCardBody.attr({'class':'card-body note-body', 'value':pushKey});
   var dRow = $('<div>');
   dRow.attr('class', 'row');
   var dTextCol = $('<div>');
-  dTextCol.attr('class', 'col-10 my-auto');
+  dTextCol.attr({'class':'col-10 my-auto note-text', 'contenteditable':'true'});
   dTextCol.text(text);
   var dButtonCol = $('<div>');
   dButtonCol.attr('class', 'col-2');
@@ -254,15 +254,32 @@ $('#notesList, #detailNotesList').on('click', '.delButton', function(event) {
 
 });
 
+// update database after note contents edited
+$('#notesList').on('blur', '.note-body', function(event) {
 
+  var newText = $(this).find('.note-text').text();
 
-// small card size = 500x250
+  database.ref(this.getAttribute('value')).update({
+    'noteText':newText
+  });
+
+  $('#detailNotesList').find('#dNote' + this.getAttribute('value')).find('.note-text').text(newText);
+
+});
+
+$('#detailNotesList').on('blur', '.note-body', function(event) {
+
+  var newText = $(this).find('.note-text').text();
+
+  database.ref(this.getAttribute('value')).update({
+    'noteText':newText
+  });
+
+  $('#notesList').find('#note' + this.getAttribute('value')).find('.note-text').text(newText);
+
+});
+
 
 // ISSUES REMAINING
 // sign out button pushes title to the left
 // new note duplicates list (happens sometimes...)
-// validation 
-// 
-// toggling sign in-out button
-// fix the double append
-
