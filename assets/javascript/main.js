@@ -14,15 +14,19 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 let selectPanel = function (menuItem) {
+    $('#detailPanels .notes').hide();
     $("#navPanels div").show();
     $("#detailPanels div").hide();
     $("#detailPanels div." + menuItem).show();
     // make sure to also show all children of the "tab"
     $("#detailPanels div." + menuItem + " div").show();
-    if (prevMenuItem != null) $(".navbar").removeClass(prevMenuItem)
+    if (prevMenuItem != null) {
+        $(".navbar").removeClass(prevMenuItem)
+    }
     $(".navbar").addClass(menuItem);
     $(".navbar-brand").text(headers[menuItem]);
     prevMenuItem = menuItem;
+
 }
 
 let activateDetailView = function (menuItem) {
