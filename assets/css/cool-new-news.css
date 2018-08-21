@@ -1,0 +1,36 @@
+.story{
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 10px;
+    
+    border-radius: 4px;
+}
+.title{
+    display: flex;
+    color: black;
+}
+.story-img{
+    float: right;
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.text {
+    width: 80%;
+    float: left;
+}
+
+.thumbnail {
+    float: right;
+}
+.new {
+    float: left;
+    margin-left: 15px;
+}
+.boxx{
+    border-width: 4px;
+    border-color: gray;
+    border-style: solid;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
