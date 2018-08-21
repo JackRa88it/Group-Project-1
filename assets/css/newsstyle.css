@@ -1,0 +1,44 @@
+.card-body a {
+    word-break: break-all;
+}
+ .articleHeadline {
+    line-height: 1.5;
+    width: 100%
+}
+ .nytlogo {
+    width: 15%;
+    margin-right: 90%;
+}
+ 
+.articleImg {
+    position: relative;
+    float: right;
+    right: 0;
+    margin: auto 0;
+}
+ /* .readmore {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+}  */
+
+h2 {
+    width: 90%;
+    font-size: 20px;
+}
+
+h5 {
+    width: 80%;
+    font-size: 16px;
+}
+
+h6 {
+    width: 90%;
+}
+
+.readmore {
+    position: relative;
+    left: 0;
+    bottom: 0%;
+}
