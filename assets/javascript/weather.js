@@ -1,8 +1,8 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
 
-  var latitude;
-  var longitude;
+  var latitude= 37.832294399999995;
+  var longitude= -122.23692799999999;
   // var weathersm = document.getElementById("weather-btn-small-card")
   // var weatherbig = document.getElementById("weather-btn-big-card")
 
@@ -11,12 +11,12 @@ $( document ).ready(function() {
     var apiKey = "c8b3f483facbe7b28175e6aaa724b450";
     var url = "https://api.forecast.io/forecast/";
       
-    navigator.geolocation.getCurrentPosition(success, error);
+    // navigator.geolocation.getCurrentPosition(success, error);
     
-    function success(position) {
-      latitude = position.coords.latitude;
+    // function success(position) {
+      // latitude = position.coords.latitude;
      
-      longitude = position.coords.longitude;
+      // longitude = position.coords.longitude;
       // console.log(latitude);
       // console.log(longitude);
       town();
@@ -106,19 +106,19 @@ $( document ).ready(function() {
                 
                 };
               
-                              initMap(latitude, longitude);
+                              // initMap(latitude, longitude);
 
                             
                           }
                         );
                       }
                     
-                      function error() {
-                        location.innerHTML = "Unable to retrieve your location";
-                      }
+                    //   function error() {
+                    //     location.innerHTML = "Unable to retrieve your location";
+                    //   }
                     
-                      location.innerHTML = "Locating...";
-                    };
+                    //   location.innerHTML = "Locating...";
+                    // };
                     
                     weather();
 
@@ -136,45 +136,45 @@ $( document ).ready(function() {
                   // });
 
 
-                  function initMap(latitude, longitude) {
+                  // function initMap(latitude, longitude) {
                     
-                    map = new google.maps.Map(document.getElementById('map'), {
-                      center: {lat:latitude, lng: longitude},
-                      zoom: 20
-                    });
-                  }
+                  //   map = new google.maps.Map(document.getElementById('map'), {
+                  //     center: {lat:latitude, lng: longitude},
+                  //     zoom: 20
+                  //   });
+                  // }
 
-                  var geocoder = new google.maps.Geocoder;
-                  var infowindow = new google.maps.InfoWindow;
+                  // var geocoder = new google.maps.Geocoder;
+                  // var infowindow = new google.maps.InfoWindow;
 
-                  document.addEventListener('click', function() {
-                    geocodeLatLng(geocoder, map, infowindow);
-                  });
+                  // document.addEventListener('click', function() {
+                  //   geocodeLatLng(geocoder, map, infowindow);
+                  // });
 
-                  function geocodeLatLng(geocoder, map, infowindow) {
-                      var input = latitude + "," + longitude;
-                      var latlngStr = input.split(',', 2);
+                  // function geocodeLatLng(geocoder, map, infowindow) {
+                  //     var input = latitude + "," + longitude;
+                  //     var latlngStr = input.split(',', 2);
                   
 
-                      var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-                      geocoder.geocode({'location': latlng}, function(results, status) {
-                        if (status === 'OK') {
-                          if (results[0]) {
-                            map.setZoom();
-                            var marker = new google.maps.Marker({
-                              position: latlng,
-                              map: map
-                            });
-                            infowindow.setContent(results[0].formatted_address);
-                            infowindow.open(map, marker);
-                          } else {
-                            window.alert('No results found');
-                          }
-                        } else {
-                          window.alert('Geocoder failed due to: ' + status);
-                        }
-                      });
-                  };
+                  //     var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+                  //     geocoder.geocode({'location': latlng}, function(results, status) {
+                  //       if (status === 'OK') {
+                  //         if (results[0]) {
+                  //           map.setZoom();
+                  //           var marker = new google.maps.Marker({
+                  //             position: latlng,
+                  //             map: map
+                  //           });
+                  //           infowindow.setContent(results[0].formatted_address);
+                  //           infowindow.open(map, marker);
+                  //         } else {
+                  //           window.alert('No results found');
+                  //         }
+                  //       } else {
+                  //         window.alert('Geocoder failed due to: ' + status);
+                  //       }
+                  //     });
+                  // };
 
                       // console.log("this is the hgin" + latitude);
 
