@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("../images/images.jpg");
@@ -47,7 +48,7 @@ body {
   background-color: rgb(255, 208, 0) !important;
 }
 
-.traffic {
+.horoscope {
   background-color: orange !important;
 }
 
@@ -81,7 +82,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .detail-screen {
-  min-height: 710px;
+  min-height: 91vh;
   padding: 25px;
 }
 
@@ -89,7 +90,7 @@ h1, h2, h3, h4, h5 {
   display: none;
 }
 
-.container .weather, .container .news, .container .notes, .container .traffic, #backBtn, #navPanels {
+.container .weather, .container .news, .container .notes, .container .horoscope, #backBtn, #navPanels {
   cursor: pointer;
 }
 
@@ -115,7 +116,7 @@ h1, h2, h3, h4, h5 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd000', endColorstr='#ffffff', GradientType=0);
 }
 
-.traffic.grad {
+.horoscope.grad {
   background: rgba(255, 166, 0, 1);
   background: -moz-linear-gradient(top, rgba(255, 166, 0, 1) 0%, rgba(255, 255, 255, 1) 19%, rgba(255, 255, 255, 1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 166, 0, 1)), color-stop(19%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
@@ -138,7 +139,7 @@ h1, h2, h3, h4, h5 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1df1a', endColorstr='#ffffff', GradientType=0);
 }
 
-/* NEWS CSS */
+
 
 h2 {
   width: 80%;
@@ -222,10 +223,62 @@ h2 {
   margin-left: 20px;
   margin-top: 10px;
   margin-bottom: 0px;
-  font-color: black;
-  /* position: absolute; */
+  color: black;
+  
 }
 
 .list-group-item {
   display: block;
 }
+
+.note-card {
+  height: auto;
+  margin: 10px;
+  color: green;
+  background-color: rgb(232, 247, 152);
+}
+
+#notesHeader:hover {
+  background-color: #2ca728;
+  
+}
+
+#delButton {
+  background-color: rgb(221, 240, 118);
+  border: none;
+}
+
+#notesList {
+  padding:10px;
+}
+
+#signOutButton {
+  display: block;
+  float: right;
+  margin: 10px 10px;
+}
+
+/*!
+ * Start Bootstrap - 2 Col Portfolio (https://startbootstrap.com/template-overviews/2-col-portfolio)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-2-col-portfolio/blob/master/LICENSE)
+ */
+
+ body {
+    padding-top: 54px;
+    font-family: Arial, Helvetica, sans-serif
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  }
+  
+  .portfolio-item {
+    margin-bottom: 30px;
+  }
+  
+  .pagination {
+    margin-bottom: 30px;
+  }
