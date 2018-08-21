@@ -151,15 +151,11 @@ h1, h2, h3, h4, h5 {
   margin: 10px;
   color: green;
   background-color: rgb(232, 247, 152);
-  width:100%;
 }
 
-<<<<<<< HEAD
 .note-body {
   padding: 8px 14px;
 }
-=======
->>>>>>> ec13bbba85f1176849ed6ac7b78294326efda89a
 
 #notesHeader:hover {
   background-color: #2ca728;
@@ -190,7 +186,6 @@ h1, h2, h3, h4, h5 {
 
 #detailNotesLeft {
   margin: 100px 0 0 100px;
-  /* border: none; */
   height: 460px;
   background-color: rgb(221, 240, 118);
   overflow: auto;
