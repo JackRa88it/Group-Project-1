@@ -22,28 +22,57 @@ var database = firebase.database();
 // ----------------------
 
 function buildNote(pushKey, text) {
+  // create regular note
+  var card = $('<div>');
+  card.attr({'class':'card note-card', 'id':'note' + pushKey});
+  var cardBody = $('<div>');
+  cardBody.attr('class', 'card-body');
+  var row = $('<div>');
+  row.attr('class', 'row');
+  var textCol = $('<div>');
+  textCol.attr('class', 'col-10 my-auto');
+  textCol.text(text);
+  var buttonCol = $('<div>');
+  buttonCol.attr('class', 'col-2');
+  var button = $('<button>');
+  button.attr({'type':'button', 'class':'btn btn-light delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
+  button.text('X');
+  card.append(cardBody);
+  cardBody.append(row);
+  row.append(textCol, buttonCol);
+  buttonCol.append(button);
+  $('#notesList').append(card);
 
-    var card = $('<div>');
-    card.attr({'class':'card note-card', 'id':'note' + pushKey});
-    var cardBody = $('<div>');
-    cardBody.attr('class', 'card-body');
-    var row = $('<div>');
-    row.attr('class', 'row');
-    var textCol = $('<div>');
-    textCol.attr('class', 'col-10 my-auto');
-    textCol.text(text);
-    var buttonCol = $('<div>');
-    buttonCol.attr('class', 'col-2');
-    var button = $('<button>');
-    button.attr({'type':'button', 'class':'btn btn-light', 'id':'delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
-    button.text('X');
+  // create detail note
+  var dCard = $('<div>');
+  dCard.attr({'class':'card note-card', 'id':'dNote' + pushKey});
+  var dCardBody = $('<div>');
+  dCardBody.attr('class', 'card-body');
+  var dRow = $('<div>');
+  dRow.attr('class', 'row');
+  var dTextCol = $('<div>');
+  dTextCol.attr('class', 'col-10 my-auto');
+  dTextCol.text(text);
+  var dButtonCol = $('<div>');
+  dButtonCol.attr('class', 'col-2');
+  var dButton = $('<button>');
+  dButton.attr({'type':'button', 'class':'btn btn-light delButton', 'value':pushKey, 'style':'float:right; height:38px; color:green;'});
+  dButton.text('X');
+  dCard.append(dCardBody);
+  dCardBody.append(dRow);
+  dRow.append(dTextCol, dButtonCol);
+  dButtonCol.append(dButton);
+  $('#detailNotesList').append(dCard);
 
-    card.append(cardBody);
-    cardBody.append(row);
-    row.append(textCol, buttonCol);
-    buttonCol.append(button);
-    $('#notesList').append(card);
+};
 
+function signInOutButton() {
+  if (firebase.auth().currentUser) {
+    $('#signOutButton').text('Sign Out');
+  }
+  else {
+    $('#signOutButton').text('Sign In');
+  };
 };
 
 
@@ -145,14 +174,18 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed out, show login modal
     $('#loginModal').modal('show');
   }
+
+  signInOutButton();
+
 });
 
 // refresh notes list on child added
 database.ref().on('child_added', function(snapshot) {
-  if (snapshot.val().userID == firebase.auth().currentUser.uid) {
-    buildNote(snapshot.key, snapshot.val().noteText);
-  }
-  else {};
+  if (firebase.auth().currentUser) {
+    if (snapshot.val().userID == firebase.auth().currentUser.uid) {
+      buildNote(snapshot.key, snapshot.val().noteText);
+    };
+  };
 });
 
 // add note button
@@ -163,20 +196,47 @@ $('#AddNoteButton').on('click', function(event) {
   var userID = firebase.auth().currentUser.uid;
   var noteText = $('#InputNote').val().trim();
 
-  // console.log(userID);
-  // console.log(noteText);
+  if (noteText === "") {
+    $('#InputNote').attr('class', 'form-control emptyNoteWarning');
+  }
+  else {
 
-  database.ref().push({
-    userID: userID,
-    noteText: noteText
-  });
+    $('#InputNote').attr('class', 'form-control');
+    database.ref().push({
+      userID: userID,
+      noteText: noteText
+    });
 
-  $('#InputNote').val('');
-  
+    $('#InputNote').val('');
+  };
 });
 
+// add note button from detail view
+$('#detailAddNoteButton').on('click', function(event) {
+
+  event.preventDefault();
+
+  var userID = firebase.auth().currentUser.uid;
+  var noteText = $('#detailInputNote').val().trim();
+
+  if (noteText === "") {
+    $('#detailInputNote').attr('class', 'form-control emptyNoteWarning');
+  }
+  else {
+
+    $('#detailInputNote').attr('class', 'form-control');
+    database.ref().push({
+      userID: userID,
+      noteText: noteText
+    });
+
+    $('#detailInputNote').val('');
+  };
+});
+
+
 // delete note button
-$('#notesList').on('click', '#delButton', function(event) {
+$('#notesList, #detailNotesList').on('click', '.delButton', function(event) {
 
   event.preventDefault();
 
@@ -186,15 +246,20 @@ $('#notesList').on('click', '#delButton', function(event) {
   });
 
   $('#note' + this.value).remove();
+  $('#dNote' + this.value).remove();
   $('#InputNote').val('');
 
 });
+
+
 
 // small card size = 500x250
 
 // ISSUES REMAINING
 // sign out button pushes title to the left
-// cannot override css for note-card height
-// cannot override clicking of card navigating to detail
-// detail view dynamically writes innerHTML, so all javascript needs delegated event listeners
-// new note duplicates list
+// new note duplicates list (happens sometimes...)
+// validation 
+// 
+// toggling sign in-out button
+// fix the double append
+

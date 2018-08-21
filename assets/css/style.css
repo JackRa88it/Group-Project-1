@@ -150,6 +150,10 @@ h1, h2, h3, h4, h5 {
   
 }
 
+.emptyNoteWarning {
+  border: 2px solid red;
+}
+
 #delButton {
   background-color: rgb(221, 240, 118);
   border: none;
@@ -157,6 +161,21 @@ h1, h2, h3, h4, h5 {
 
 #notesList {
   padding:10px;
+}
+
+#detailNotes {
+  margin: 100px 150px;
+  border: none;
+}
+
+#detailNotesHeader,
+#detailNotesList {
+  background-color: rgb(193, 223, 26);
+  border: none;
+}
+
+#detailNotesList {
+  padding: 10px;
 }
 
 #signOutButton {
