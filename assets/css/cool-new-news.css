@@ -1,0 +1,90 @@
+.story{
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.title{
+    display: flex;
+    color: black;
+}
+
+.story-img{
+    float: right;
+    display: inline-block;
+}
+
+.text {
+    width: 82%;
+    float: left;
+}
+
+.thumbnail {
+    float: right;
+}
+
+.new {
+    float: left;
+    margin-left: 15px;
+}
+
+.boxx{
+    border-width: 4px;
+    border-color: gray;
+    border-style: solid;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+.logoImg {
+    width: 20%;
+}
+
+.readMore {
+    color: black;
+}
+
+p.title {
+    font-weight: bold; 
+    line-height: 1.3;
+}
+
+.largeCard {
+    background-color: white;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    padding: 25px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+
+/* .large-img {
+    position: absolute;
+    float: right;
+    display: block;
+} */
+
+.lgTitle {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.lgCardText {
+    color:black;
+    font-size: 15px;
+    width: 80%;
+}
+
+.large-thumbnail {
+    position: absolute;
+    float: right;
+    display: block;
+    left: 80%;
+    bottom: 0;
+}
+
+.limitAbstract {
+    width: 75%;
+}

@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-image: url("../images/images.jpg");
@@ -8,7 +7,7 @@ body {
 }
 
 .card {
-  height: 300px;
+  height: 350px;
 }
 
 .card-header {
@@ -139,96 +138,12 @@ h1, h2, h3, h4, h5 {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c1df1a', endColorstr='#ffffff', GradientType=0);
 }
 
-
-
-h2 {
-  width: 80%;
-  font-size: 18px;
-}
-.card-body a {
-  word-break: break-all;
+#detailPanels h1, #detailPanels h2, #detailPanels h3 {
+  color:#333333;
 }
 
-.articleHeadline {
-  line-height: 1.5;
-  width: 100%
-}
-
-.article-header {
-  width: 80%;
-  height: 250px;
-}
-
-.article-section {
-  width: 50%;
-}
-
-.nytlogo {
-  width: 15%;
-  display: block;
-}
-
-/* .articleImg {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-  /* position: relative; */
-  /* float: right;
-  bottom: 20px;
-  display: block; */
-  /* margin: auto 0; */
-
-/* } */
-
-.articleImg {
-  /* vertical-align: middle; */
-  position: absolute;
-  display: block;
-  float: right;
-  right: 5px;
-  /* max-height: 25px;
-  max-width: 160px; */
-  bottom: 10px;
-}
-
-
-.readmore {
-  position: relative;
-  left: 0;
-  bottom: 0%;
-}
-
-/* headline cards */
-.card-body {
-  z-index: 1;
-}
-
-.articleHeadline {
-  color: black;
-  overflow-wrap: break-word;
-}
-
-h2 {
-  color: black;
-}
-
-.list-group-item.articleHeadline {
-  position: relative;
-  height: 100px;
-  width: 500px;
-  padding: 10px;
-  /* display: block; */
-  margin: 0 auto;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  color: black;
-  
-}
-
-.list-group-item {
-  display: block;
+.grad {
+  padding-top:65px;
 }
 
 .note-card {
@@ -238,47 +153,71 @@ h2 {
   background-color: rgb(232, 247, 152);
 }
 
+.note-body {
+  padding: 8px 14px;
+}
+
 #notesHeader:hover {
   background-color: #2ca728;
   
 }
 
-#delButton {
+.emptyNoteWarning {
+  border: 2px solid red;
+}
+
+.delButton {
   background-color: rgb(221, 240, 118);
   border: none;
+  border-radius: 100px;
+  float:right;
+  height:34px;
+  color:green;
+}
+
+.delButton:hover {
+  background-color: green;
+  color: rgb(221, 240, 118);
 }
 
 #notesList {
-  padding:10px;
+  padding: 10px;
 }
 
-#signOutButton {
+#detailNotesLeft {
+  margin: 100px 0 0 100px;
+  height: 460px;
+  background-color: rgb(221, 240, 118);
+  overflow: auto;
+}
+
+#detailNotesImg {
+  height: 470px;
+  opacity: 0.7;
+  filter: grayscale(50%) contrast(50%) brightness(150%);
+}
+
+#detailNotesRight {
+  margin: 100px 100px 0 0;
+  height: 460px;
+  font-size: 18px;
+}
+
+.detailNotesHeader {
+  background-color: rgb(193, 223, 26);
+}
+
+#detailNotesList {
+  background-color: rgb(193, 223, 26);
+  padding: 10px;
+}
+
+#logInOutButton {
   display: block;
   float: right;
   margin: 10px 10px;
 }
 
-/*!
- * Start Bootstrap - 2 Col Portfolio (https://startbootstrap.com/template-overviews/2-col-portfolio)
- * Copyright 2013-2018 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-2-col-portfolio/blob/master/LICENSE)
- */
-
- body {
-    padding-top: 54px;
-    font-family: Arial, Helvetica, sans-serif
-  }
-  
-  @media (min-width: 992px) {
-    body {
-      padding-top: 56px;
-    }
-  }
-  
-  .portfolio-item {
-    margin-bottom: 30px;
-  }
-  
-  .pagination {
-    margin-bottom: 30px;
-  }
+[contenteditable]:focus {
+  outline: none;
+}

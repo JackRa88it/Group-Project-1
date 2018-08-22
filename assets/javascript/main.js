@@ -14,15 +14,19 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 
 let selectPanel = function (menuItem) {
+    $('#detailPanels .notes').hide();
     $("#navPanels div").show();
     $("#detailPanels div").hide();
     $("#detailPanels div." + menuItem).show();
     // make sure to also show all children of the "tab"
     $("#detailPanels div." + menuItem + " div").show();
-    if (prevMenuItem != null) $(".navbar").removeClass(prevMenuItem)
+    if (prevMenuItem != null) {
+        $(".navbar").removeClass(prevMenuItem)
+    }
     $(".navbar").addClass(menuItem);
     $(".navbar-brand").text(headers[menuItem]);
     prevMenuItem = menuItem;
+
 }
 
 let activateDetailView = function (menuItem) {
@@ -34,79 +38,30 @@ let activateDetailView = function (menuItem) {
 let activateHomePage = function () {
     $(".container").show();
     $(".container-fluid").hide();
-    populateAll();
+    populateAllCards();
 }
-
-$('#backBtn').on("click", function () {
-    activateHomePage();
-});
-
-$("#navPanels .weather").on("click", function () {
-    selectPanel("weather");
-    populateWeather()
-});
-
-$(".container .weather").on("click", function () {
-    activateDetailView("weather");
-    populateWeather()
-});
-
-$("#navPanels .news").on("click", function () {
-    selectPanel("news")
-    populateNews();
-});
-
-$(".container .news").on("click", function () {
-    activateDetailView("news")
-    populateNews();
-});
-
-$("#navPanels .traffic").on("click", function () {
-    selectPanel("traffic")
-    populateTraffic();
-});
-
-$(".container .traffic").on("click", function () {
-    activateDetailView("traffic")
-    populateTraffic();
-});
-
-$("#navPanels .notes").on("click", function () {
-    selectPanel("notes");
-    populateNotes();
-});
-
-$(".container .notes").on("click", function () {
-    activateDetailView("notes")
-    populateNotes();
-});
-
-
-// $(function () {
-//     populateAllCards();
-// }
 
 /* Handlers for clicks on card*/
 
-// $(".container .weather").on("click", function () {
-//     activateDetailView("weather");
-//     populateWeatherDetail()
-// });
+$(".container .weather").on("click", function () {
+    activateDetailView("weather");
+    populateWeatherDetail()
+});
 
-// $(".container .news").on("click", function () {
-//     activateDetailView("news")
-//     populateNewsDetail();
-// });
+$(".small-news-card").on("click", function () {
+    activateDetailView("news")
+    populateNewsDetail();
+});
 
-// $(".container .horoscope").on("click", function () {
-//     activateDetailView("horoscope")
-//     populateHoroscopeDetail();
-// });
+$(".container .horoscope .card-header").on("click", function () {
+    activateDetailView("horoscope")
+    populateHoroscopeDetail();
+});
 
-// $("#notesHeader").on("click", function () {
-//     activateDetailView("notes")
-//     populateNotesDetail();
-// });
+$("#notesHeader").on("click", function () {
+    activateDetailView("notes")
+    populateNotesDetail();
+});
 
 /* Handlers for clicks on detail menu items */
 
@@ -144,33 +99,46 @@ $(function () {
         navMain.collapse('hide');
     });
 
-    populateAll()
+    populateAllCards();
 });
 
 
 /* functions that need to be implemented by ajax for all topics */
-let populateWeather = function () {
-    $("#weather, #detailPanels .weather").text("45F")
+let populateWeatherCard = function () {
+   
 }
 
-function loadPage(nytData);
+let populateWeatherDetail = function () {
 
-let populateNews = function () {
-    $("#news, #detailPanels .news").text("IBM is down by 3%")
 }
 
-let populateTraffic = function () {
-    $("#traffic, #detailPanels .traffic").text("Today you will succeed")
+let populateNewsCard = function () {
+
 }
 
-let populateNotes = function () {
-    $("#notes, #detailPanels .notes").html("<ul><li>Visit deprivation room</li><li>Buy milk</li></ul>")
+let populateNewsDetail = function () {
+   
+}
+let populateHoroscopeCard = function () {
+ 
 }
 
-let populateAll = function () {
-    populateWeather();
-    populateNews();
-    populateTraffic();
-    populateNotes();
+let populateHoroscopeDetail = function () {
+    
+}
+
+let populateNotesCard = function () {
+   
+}
+
+let populateNotesDetail = function () {
+    
+}
+
+let populateAllCards = function () {
+    populateWeatherCard();
+    populateNewsCard();
+    populateHoroscopeCard();
+    populateNotesCard();
 }
 
