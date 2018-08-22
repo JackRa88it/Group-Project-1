@@ -44,6 +44,7 @@ $(document).ready(function () {
     $(document).on('click', '#scopeBtn', function () {
 
         function addRow(index) {
+            
             $("#hor-display").append(
                 ` <div class="row">
                               <div class="col-sm">
