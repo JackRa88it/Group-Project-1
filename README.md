@@ -17,7 +17,7 @@ Small Cards show:
 -Weather- Current temperature in Fahrenheit and description of weather
 -News- Top two headlines from the New York Times with link directly to article
 -Horoscopes- A dropdown menu that displays the horoscope for the sign selected
--Notes- A space to type in two to three notes
+-Notes- A space to create, edit, and delete notes
 
 Big Cards show:
 -Weather- Current temperature in Fahrenheit, humidity level, wind speed, Ozone level, general forecast for the week
