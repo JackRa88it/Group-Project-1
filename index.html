@@ -65,7 +65,7 @@
     <div class="row">
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary weather">
-          <div class="card-header">Weather</div>
+          <div class="card-header" id="weatherHeader">Weather</div>
           <div class="card-body" id="weather">
             <div class="row">
               <div class="col-md-4">
@@ -101,7 +101,7 @@
     <div class="row">
       <div class="col-lg-6 portfolio-item">
         <div class="card text-white bg-primary horoscope">
-          <div class="card-header">Horoscope</div>
+          <div class="card-header" id="horoscopeHeader">Horoscope</div>
           <div class="card-body" id="horoscope">
             <div class="row">
               <div class="col-sm-4">
@@ -244,7 +244,6 @@
       <div class="col-xl-12 news detail-screen grad">
         <!--enter detail news-related HTML here-->
         <div class="container" id="big-news">
-          
         </div>
 
       </div>
@@ -259,41 +258,41 @@
         <div class="container" id="hor-display"></div>
       </div>
       <div class="col-xl-12 notes detail-screen grad">
-          <!--enter detail notes-related HTML here-->
-          <div class="row">
-    
-            <div class="col-md-6">
-    
-              <div class="card text-white" id="detailNotesLeft">
-                <div>
-                  <img src="assets/images/notebook-e1476214349781.jpeg" alt="background image" id="detailNotesImg">
-                </div>
+        <!--enter detail notes-related HTML here-->
+        <div class="row">
+
+          <div class="col-md-6">
+
+            <div class="card text-white" id="detailNotesLeft">
+              <div>
+                <img src="assets/images/notebook-e1476214349781.jpeg" alt="background image" id="detailNotesImg">
               </div>
-    
             </div>
-            <div class="col-md-6">
-    
-              <div class="card text-white" id="detailNotesRight">
-                <div class="card-header detailNotesHeader">
-                  <form>
-                    <div class="row">
-                      <div class="col-9">
-                        <input type="text" class="form-control" placeholder="enter note text..." id="detailInputNote">
-                      </div>
-                      <div class="col-3">
-                        <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                <div class="card-body" id="detailNotesList" style="overflow: auto"></div>
-              </div>
-    
-            </div>
-    
+
           </div>
-    
+          <div class="col-md-6">
+
+            <div class="card text-white" id="detailNotesRight">
+              <div class="card-header detailNotesHeader">
+                <form>
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="text" class="form-control" placeholder="enter note text..." id="detailInputNote">
+                    </div>
+                    <div class="col-3">
+                      <button type="submit" class="btn btn-success" id="detailAddNoteButton">Add Note</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-body" id="detailNotesList" style="overflow: auto"></div>
+            </div>
+
+          </div>
+
         </div>
+
+      </div>
     </div>
   </div>
 
@@ -319,12 +318,12 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Q0RrBR7cgtlVASTV0FWfT8VwWBbb3Q"></script>
 
 
-    <script src="./assets/javascript/main.js"></script>
-    <script src="./assets/javascript/weather.js"></script>
-    <script src="./assets/javascript/horoscope.js"></script>
-    <!-- notes javascript -->
-    <script src="./assets/javascript/notes.js"></script>
-    <script src="assets/javascript/cool-new-news.js"></script>
+  <script src="./assets/javascript/main.js"></script>
+  <script src="./assets/javascript/weather.js"></script>
+  <script src="./assets/javascript/horoscope.js"></script>
+  <!-- notes javascript -->
+  <script src="./assets/javascript/notes.js"></script>
+  <script src="assets/javascript/cool-new-news.js"></script>
 
 </body>
 

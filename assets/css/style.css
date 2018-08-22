@@ -85,6 +85,10 @@ h1, h2, h3, h4, h5 {
   padding: 25px;
 }
 
+.col-sm {
+  margin: 20px;
+}
+
 .container-fluid {
   display: none;
 }
@@ -159,7 +163,18 @@ h1, h2, h3, h4, h5 {
 
 #notesHeader:hover {
   background-color: #2ca728;
-  
+}
+
+#newsHeader:hover {
+  background-color: rgb(236, 174, 2);
+}
+
+#weatherHeader:hover {
+  background-color: rgb(105, 165, 15);
+}
+
+#horoscopeHeader:hover {
+  background-color: rgb(238, 127, 1);
 }
 
 .emptyNoteWarning {
