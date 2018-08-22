@@ -48,7 +48,7 @@ $(".container .weather").on("click", function () {
     populateWeatherDetail()
 });
 
-$(".container .news").on("click", function () {
+$(".small-news-card").on("click", function () {
     activateDetailView("news")
     populateNewsDetail();
 });
